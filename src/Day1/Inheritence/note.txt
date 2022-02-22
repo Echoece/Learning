@@ -1,0 +1,51 @@
+# Inheritance and Aggregation
+
+Inheritance: in Java it is a mechanism in which one object acquires all the properties and behaviors of a parent object.Inheritance
+             represents the IS-A relationship which is also known as a parent-child relationship.
+
+Aggregation: If a class have an entity reference, it is known as Aggregation. Aggregation represents HAS-A relationship.
+
+
+# Uses
+
+Inheritance:
+    1. For method overriding so runtime polymorphism can be achieved
+    2. For Code Re-usability.
+
+Aggregation:
+    1. For Code Re-usability.
+
+# When to use aggregation or inheritance?
+-> If The new class is more or less as the original class. Use inheritance. The new class is now a subclass of the original class
+-> If the new class must have the original class. Use aggregation. The new class has now the original class as a member.
+
+We should use aggregation if part of the interface is not used or has to be changed to avoid an illogical situation.
+We only need to use inheritance, if we need almost all of the functionality without major changes. And when in doubt, use Aggregation.
+
+An other possibility for, the case that we have an class that needs part of the functionality of the original class, is to split
+the original class in a root class and a sub class. And let the new class inherit from the root class. But you should take care with
+this, not to create an illogical separation.
+For example,
+1. We have a class 'Dog' with methods: 'Eat', 'Walk', 'Bark', 'Play'.
+2. We now need a class 'Cat', that needs 'Eat', 'Walk', 'Purr', and 'Play'.
+3. So first try to extend it from a Dog.
+4. Looks, alright, but wait. This cat can Bark (Cat lovers will kill me for that).
+   And a barking cat violates the principles of the universe. So we need to override the Bark method so that it does nothing.
+5. Ok, this works, but it smells bad. So lets try an aggregation:
+6. Ok, this is nice. This cat does not bark anymore, not even silent. But still it has an internal dog that wants out.
+   So lets try solution number three:
+    a. Class pet with method  'Eat', 'Walk' and 'Play' (common for both dog and cat)
+    b. Dog extends from pet and add extra method 'Bark'
+    c. Cat also extends from pet and add extra method 'Purr'
+
+
+
+# Types of Inheritance
+Java supports only three types of inheritance: single, multilevel and hierarchical.
+Java doesnt support multiple or hybrid inheritance directly. It is supported through interface.
+
+# why java doesnt support multiple inheritance?
+Suppose a class Child inherits from both Parent1 and Parent2 class. Now if there is different implementation of method
+named test(), it will be complicated which implementation child will use.
+
+
