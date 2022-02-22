@@ -1,0 +1,33 @@
+# The wrapper class in Java provides the mechanism to convert primitive into object and object into primitive.
+
+-> Java.lang package contains the wrapper classes.
+-> The list of eight wrapper classes: Boolean, Character, Byte, Short, Integer, Long, Float, Double
+-> Basically these wrapper classes creates object from primitive types. This process is called Boxing/wrapping over primitive type.
+
+Number class is the parent abstract class of Byte, Short, Integer, Long, Float, Double wrapper classes.
+It's methods contains byteValue(), doubleValue(), floatValue(), intValue(), longValue(), shortValue() etc. So any number can be converted
+to other type.
+
+/------------------------------------------------------------/
+
+# AutoBoxing and Unboxing:
+The automatic conversion of primitive into an object is known as autoboxing and vice-versa unboxing.
+Example:
+    // unboxing, converting object into primitive type
+    int a = new Integer(15);
+    // autoboxing, converting primitive type into object.
+    int b =20;
+    Integer c = b;
+
+/------------------------------------------------------------/
+
+# To initialize a wrapper class we can use the static valueOf() method, which have several overloads. Or we can directly assign the value.
+  We also could use new keyword, but first two is better depending on the value type.
+  We can also mention a radix in the valueOf() method, using this we can create different number system like decimal,hex,octal, binary
+
+/------------------------------------------------------------/
+
+# use of Wrapper classes:
+1. Java supports call by value only (as call by value means we pass the pointer of the object and it can breaks the security). So if we pass
+a primitive type into a method, it will only pass a value not the reference of the original variable holding the value. So any changes we make
+won't reflect on the original value. If we pass an object however, we pass a reference. So any changes made in the
