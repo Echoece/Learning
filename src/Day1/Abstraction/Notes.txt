@@ -1,0 +1,66 @@
+# Interface:
+An interface in Java is a blueprint of a class. It has static constants and abstract methods. Java Interface also represents the IS-A relationship.
+Interfaces are used to standardize the way a particular set of classes are used, give them a common behaviour.
+it gives the program abstraction which hides away complex working of the system and only give a blueprint of the system.
+
+=> interface cant implement method (abstract classes can, even though it wont be abstract method anymore)
+=> a class can implement multiple interface, while can only inherit from one abstract class
+=> interface is 100% abstract, while abstract classes can be 0-100% abstract depending on their structure.
+=> all variables are public, static and final by default.
+=> its methods are public abstract by default.
+=> interface can not have constructors.
+=> interfaces cant be instantiated, it can only be implemented by overriding all of its methods.
+
+Note:
+1. An interface can extend another interface/multiple interfaces. Any class implementing such interfaces must implement all methods
+   of parent interfaces as well.
+2. Special case: If class A implements both Interface B and C. Suppose B and C both have method int present(). In this case, only one
+   override will be necessary. But suppose, B has int present() and C has void present(). In this case code will not compile as there
+   will be ambiguity.
+
+new features from java 8:
+-> it is possible to have default method in the interface now. Default methods were introduced to provide backward
+   compatibility for old interfaces so that they can have new methods without affecting existing code.
+-> Interface can have static method as well.
+
+new feature from java 9:
+-> Since Java 9, we can have private methods in an interface.
+
+# What is marker or tagged interface?
+An interface which has no member is known as a marker or tagged interface, for example, Serializable,
+Cloneable, Remote, etc. They are used to provide some essential information to the JVM so that JVM may perform some useful operation.
+
+# Why use Java interface?
+-> It is used to achieve abstraction.
+-> By interface, we can support the functionality of multiple inheritance.
+-> It can be used to achieve loose coupling.
+
+//----------------------------------------------------------------------
+# Abstraction:
+A class which is declared with the abstract keyword is known as an abstract class in Java. It can have abstract and non-abstract methods (method with the body).
+
+There are two ways of achieve abstraction in java, interface (100% ) and abstract class(0-100% abstraction). abstract classes, like interface
+Provide a common interface which allows the subclass to be interchanged with all other subclasses. only difference is , we can specify
+some method and variables which we couldn't do in interface.
+
+same rule as interface, if we inherit from an abstract class we must provide the override. If it doesnt , then the
+inherited class must be declared abstract as well.
+
+=>  An abstract class is a class which cannot be instantiated
+=>  An abstract class must be declared with an abstract keyword. If a class has at least one abstract method then that class must be abstract.
+=>  An abstract class may or may not contain abstract method. An abstract method is a method that is declared without
+    an implementation (without braces, and followed by a semicolon)
+=>  an abstract class can contain constructors in Java. And a constructor of abstract class is called when an
+    instance of a inherited class is created.
+=>  It can have final methods which will force the subclass not to change the body of the method.
+
+# when to use abstract class instead of interface?
+-> in case we need non static or non final fields
+-> in case when require access modifier other than public. Though from Java 9 interface supports private methods.
+-> in case where we can provide a default partial implementation of base class, while leaving abstract methods
+   to be overridden by child.
+//----------------------------------------------------------------------
+
+Rule of thumb :
+-> If the class has few abstract methods and few concrete methods, declare it as an abstract class.
+-> If the class has only abstract methods, declare it as an interface.
