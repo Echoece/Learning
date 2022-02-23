@@ -1,0 +1,20 @@
+# Instance initialization block:
+Instance Initializer block is used to initialize the instance data member.
+For example, Suppose I have to perform some operations while assigning value to instance data member e.g. a for loop to
+fill a complex array or error handling etc. Such cases instance initializer block helps.
+
+-> Initialization blocks are executed whenever the class is initialized and before constructors are invoked.
+-> It run each time when object of the class is created.
+-> They are typically placed above the constructors within braces.
+
+/------------------------------------------------------------/
+
+# static initialization block:
+whenever we use a static keyword and associate it to a block then that block is referred to as a static block. Java supports
+a special block, called a static block (also called static clause) that can be used for static initialization of a class.
+
+-> static initialization blocks can only initialize the static instance variables
+-> These blocks are only executed once when the class is loaded.
+-> There can be multiple static initialization blocks in a class that is called in the order they appear in the program.
+
+/------------------------------------------------------------/

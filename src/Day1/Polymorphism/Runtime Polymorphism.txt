@@ -1,0 +1,48 @@
+# Polymorphism:
+There are two types of polymorphism in Java: compile-time polymorphism and runtime polymorphism. We can perform polymorphism
+in java by method overloading and method overriding. If you overload a static method in Java, it is the example of compile time
+polymorphism.
+
+# Runtime Polymorphism:
+Runtime polymorphism or Dynamic Method Dispatch is a process in which a call to an overridden method is resolved
+at runtime rather than compile-time. In this process, an overridden method is called through the reference variable of a superclass.
+The determination of the method to be called, is based on the object being referred to by the reference variable.
+
+Note: Runtime polymorphism can't be achieved by data members as A method is overridden but not the data members.
+
+/------------------------------------------------------------/
+
+# Static Binding and Dynamic Binding
+Connecting a method call to the method body is known as binding.
+1. Static binding: When type of object is determined at compile time, it is known as static binding. If there is any private,
+   final or static method in a class, there is static binding.
+2. Dynamic binding: When type of object is determined at runtime, it is known as dynamic binding.
+
+understanding types:
+1. variables: each variable has a type, it can be primitive and non primitive.
+2. Reference: Reference has a type. Example: Dog d1;   //Here d1 is a type of Dog
+3. Object: An object is an instance of particular java class,but it is also an instance of its superclass.
+Example: Dog d1=new Dog();  Here d1 is an instance of Dog class, but it is also an instance of Animal (assuming Dog extends animal).
+
+/------------------------------------------------------------/
+
+# Java instanceof
+The java instanceof operator is used to test whether the object is an instance of the specified type (class or subclass or interface).
+The instanceof in java is also known as type comparison operator because it compares the instance with type. It returns either true or false.
+If we apply the instanceof operator with any variable that has null value, it returns false.
+
+Note: An object of subclass type is also a type of parent class. For example, if Dog extends Animal then object of Dog
+can be referred by either Dog or Animal class.
+
+/------------------------------------------------------------/
+
+# Down-casting with java instance of operator
+-> When Subclass type refers to the object of Parent class, it is known as down-casting.
+-> If we perform it directly, compiler gives Compilation error.
+   Example: Dog d=new Animal();//Compilation error
+-> If you perform it by typecasting, ClassCastException is thrown at runtime in case of wrong casting.
+   Example: Dog d=(Dog)new Animal();  //Compiles successfully but ClassCastException is thrown at runtime if Dog is not subclass of Animal.
+-> But if we use instanceof operator, down-casting is possible.
+   Example: if(a instanceof Dog3){ Dog3 d=(Dog3)a; }   // this will work
+
+/------------------------------------------------------------/

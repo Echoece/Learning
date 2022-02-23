@@ -52,3 +52,5 @@ Java synchronization only works with objects, so this is another use case of Wra
 
 4. Collection Framework:
 All the framework work with objects only. So we need to use Wrapper classes in case we want to use collection framework
+
+/------------------------------------------------------------/

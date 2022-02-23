@@ -1,0 +1,32 @@
+# Method Overloading:
+If a class has multiple methods having same name but different in parameters, it is known as Method Overloading. We can even
+overload the main method if we need.
+
+/------------------------------------------------------------/
+
+# There are two ways to overload the method in java:
+    1. By changing number of arguments
+    2. By changing the data type of the arguments
+    3. By changing the order of parameters in the method.
+Also:
+    1. the methods can or cant have different return type
+    2. can or cant have different access modifier
+    3. throw different checked or unchecked exception
+In Java, Method Overloading is not possible by changing the return type of the method only. (it will be compile time error if both function is identical).
+
+/------------------------------------------------------------/
+
+# Type promotion in method overloading
+One type is promoted to another implicitly (check the image) if no matching datatype is found. For example,
+-> byte can be promoted to short, int, long, float or double
+-> The short datatype can be promoted to int, long, float or double
+-> The char datatype can be promoted to int,long,float or double
+-> int datatype can be promoted to float, long double and so on
+
+Note: By default, a datatype will try to go to the method which has the closest bigger matching datatype argument. For example, if we have 3 method with
+int, long, float parameters and if we call method with byte data type. In this case, it will go to the next bigger datatype int.
+
+It is possible to have ambiguity in certain cases of type promotion, check the example for details.
+/------------------------------------------------------------/
+
+

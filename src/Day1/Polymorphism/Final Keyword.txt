@@ -1,0 +1,18 @@
+The final keyword in java is used to restrict the user.
+
+The java final keyword can be used in many context. Final can be:
+1. variable: If we make any variable as final, we cannot change the value of final variable(It will be constant basically).
+2. method: If we make any method as final, we cannot override it.
+3. class: If you make any class as final, you cannot extend it.
+Note: If we dont follow the above rules, we will get compile time error.
+
+-> Child classes can inherit the final methods (but of course they cant override it).
+-> A final variable that is not initialized at the time of declaration is known as blank/uninitialized final variable. It
+   can only be initialize in constructor. Example: For PAN or CARD number of an employee.
+-> A static final variable that is not initialized at the time of declaration is known as static blank final variable. It
+   can be initialized only in static block.
+-> If we declare any parameter of a method as final, we cannot change the value of it inside the method anymore.
+-> As constructors are never inherited, we cant declare them as final.
+
+
+

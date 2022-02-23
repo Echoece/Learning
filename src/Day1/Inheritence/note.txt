@@ -5,6 +5,7 @@ Inheritance: in Java it is a mechanism in which one object acquires all the prop
 
 Aggregation: If a class have an entity reference, it is known as Aggregation. Aggregation represents HAS-A relationship.
 
+/------------------------------------------------------------/
 
 # Uses
 
@@ -14,6 +15,8 @@ Inheritance:
 
 Aggregation:
     1. For Code Re-usability.
+
+/------------------------------------------------------------/
 
 # When to use aggregation or inheritance?
 -> If The new class is more or less as the original class. Use inheritance. The new class is now a subclass of the original class
@@ -38,14 +41,18 @@ For example,
     b. Dog extends from pet and add extra method 'Bark'
     c. Cat also extends from pet and add extra method 'Purr'
 
-
+/------------------------------------------------------------/
 
 # Types of Inheritance
 Java supports only three types of inheritance: single, multilevel and hierarchical.
 Java doesnt support multiple or hybrid inheritance directly. It is supported through interface.
 
+/------------------------------------------------------------/
+
 # why java doesnt support multiple inheritance?
 Suppose a class Child inherits from both Parent1 and Parent2 class. Now if there is different implementation of method
 named test(), it will be complicated which implementation child will use.
+
+/------------------------------------------------------------/
 
 
