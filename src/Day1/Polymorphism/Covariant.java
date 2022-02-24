@@ -1,10 +1,13 @@
 package Day1.Polymorphism;
 
 public class Covariant {
+    public static void main(String[] args) {
+    }
 }
 
 class Burger{ }
 class HealthyBurger extends Burger{}
+class MoreHealthyBurger extends  HealthyBurger{}
 class BurgerFactory{
     public Burger createBurger(){
         return new Burger();
@@ -21,6 +24,8 @@ class BurgerFactory{
 class HealthyBurgerFactory extends BurgerFactory{
     @Override
     public Burger createBurger() {
-        return new HealthyBurger();
+        return new MoreHealthyBurger();
     }
 }
+
+

@@ -8,7 +8,6 @@ Day 1:
 
 
 Day 2 :
-
 1. Custom Exception
 2. Abstract class & Interface   = Done
 3. Inner class

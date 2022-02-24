@@ -1,0 +1,29 @@
+HashSet :
+Java HashSet class is used to create a collection that uses a hash table for storage. It inherits the AbstractSet class and implements Set interface.
+
+-> HashSet stores the elements by using a mechanism called hashing.
+-> HashSet contains unique elements only.
+-> HashSet allows null value.
+-> HashSet class is non synchronized.
+-> HashSet doesn't maintain the insertion order. Here, elements are inserted on the basis of their hashcode.
+-> The initial default capacity of HashSet is 16, and the load factor (Number of entries/size of array) is 0.75.
+-> HashSet is the best approach for search operations.
+
+/------------------------------------------------------------/
+
+LinkedHashSet:
+Java LinkedHashSet class is a Hashtable and Linked list implementation of the set interface. It inherits HashSet class and implements Set interface.
+The important points about Java LinkedHashSet class are:
+    -> Java LinkedHashSet class contains unique elements only like HashSet.
+    -> Java LinkedHashSet class provides all optional set operation and permits null elements.
+    -> Java LinkedHashSet class is non synchronized.
+    -> Java LinkedHashSet class maintains insertion order.
+
+Like HashSet, it provides constant-time performance for the basic operations (add, contains and remove), assuming the
+hash function disperses elements properly among the buckets.
+Performance is likely to be just slightly below that of HashSet, due to the added expense of maintaining the linked list,
+with one exception: Iteration over a LinkedHashSet requires time proportional to the size of the set, regardless of its
+capacity. Iteration over a HashSet is likely to be more expensive, requiring time proportional to its capacity.
+
+/------------------------------------------------------------/
+

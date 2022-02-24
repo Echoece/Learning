@@ -1,0 +1,35 @@
+Set is a collection that contains no duplicate elements.
+This interface is a member of the Java Collections Framework.
+
+-> HashSet is unordered and unsorted Set.LinkedHashSet is the ordered version of HashSet.
+-> The only difference between HashSet and LinkedHashSet is that: LinkedHashSet maintains the insertion order.
+
+=> HashSet:           doesn't maintain any kind of order of its elements.
+=> TreeSet:           sorts the elements in ascending order.
+=> LinkedHashSet:     maintains the insertion order. Elements gets sorted in the same sequence in which
+                      they have been added to the Set.
+
+/------------------------------------------------------------/
+
+# When to use ArrayList vs LinkedList?
+-> ArrayList provides constant time for search operation, so it is better to use ArrayList if searching is
+   more frequent operation than add and remove operation.
+-> The LinkedList provides constant time for add and remove operations. So it is better to use LinkedList for manipulation and searching isn't frequent.
+
+/------------------------------------------------------------/
+
+# Implementations :
+HashMap ::      -> makes absolutely no guarantees about the iteration order. It can (and will) even change completely when new elements are added.
+                -> Most useful when looking for a best-performance (fast) implementation.
+
+TreeMap ::      -> will iterate according to the "natural ordering" of the keys according to their compareTo() method
+                   (or an externally supplied Collection.Comparator). Additionally, it implements the SortedMap interface, which contains methods
+                   that depend on this sort order.
+                -> Most useful when I'm concerned with being able to sort or iterate over the keys in a particular order that I define.
+
+LinkedHashMap:: -> will iterate in the order in which the entries were put into the map
+                -> Combines advantages of guaranteed ordering from TreeMap without the increased cost of maintaining the TreeMap.
+                   (It is almost as fast as the HashMap). In particular, the LinkedHashMap also provides a great starting point for
+                   creating a Cache object by overriding the removeEldestEntry() method. This lets you create a Cache object that can
+                   expire data using some criteria that you define.
+

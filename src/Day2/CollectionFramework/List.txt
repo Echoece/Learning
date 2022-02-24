@@ -1,0 +1,105 @@
+# ArrayList:
+Java ArrayList class uses a dynamic array for storing the elements. It is like an array, but there is no size limit. We can add or remove elements anytime.
+It inherits the AbstractList class and implements List interface. If we dont specify a size, by default java will create with size of 10. ArrayList has
+O(1) time complexity to access elements via the get and set methods.
+
+Rule of thumb: ArrayList is good for write once read many applications or appending, but bad for add/remove from the front or middle.
+
+-> Java ArrayList class can contain duplicate elements.
+-> Java ArrayList class maintains insertion order.
+-> Java ArrayList class is non synchronized/ not thread safe. We can use Collections.synchronizedList() method to get a Thread safe arrayList.
+-> Java ArrayList allows random access because array works at the index basis.
+-> In ArrayList, manipulation is little bit slower than the LinkedList in Java because a lot of shifting needs to occur if any element is removed from the array list.
+
+/------------------------------------------------------------/
+
+# When to use ArrayList?
+-> ArrayList provides constant time for search operation, so it is better to use ArrayList if searching is
+   more frequent operation than add and remove operation.
+-> The LinkedList provides constant time for add and remove operations. So it is better to use LinkedList for manipulation and searching isn't frequent.
+
+# how to sort ArrayList?
+Collections.sort() = natural order/ ascending order/ lexicographic order
+Collections.reverseOrder() = reverse order/ descending order/ reverse lexicographic order
+
+# How to Synchronize ArrayList in Java?
+Example: List<String> fruitList = Collections.synchronizedList(fruitList);
+
+# How to make ArrayList Read Only?
+Example: List<String>unmodifiableList = Collections.unmodifiableList(fruitList);
+
+# How to convert ArrayList to Array and Array to ArrayList in java?
+Example:
+List<String> fruitList = new ArrayList<>();                                 // creating Arraylist
+String[] item = fruitList.toArray(new String[fruitList.size()]);            // Converting ArrayList to Array
+List<String>l2 = Arrays.asList(item);                                       // Converting Array to ArrayList
+
+# How to remove duplicates from ArrayList in Java?
+To remove duplicates from ArrayList, we can convert it into Set. Since Set doesn't contain duplicate elements, it will have only unique elements.
+Example:
+List<String> l = new ArrayList<String>();
+Set<String> s = new LinkedHashSet<String>(l);
+
+# Difference between length of array and size() of ArrayList in Java:
+ length = size of array, size() = number of elements in the arraylist. (capacity would be the equivalent of length for arraylist)
+
+# check for equality of two arraylist:
+-> equals() method : compare size and equality of elements
+-> removeAll() method : can be used to find missing elements
+-> retainAll() method : can be used to find common elements
+-> ArrayList.contains() method : compares to see if an element exists
+-> contentEquals() method : it is used to compare string representation of a list (have to convert list to string and then compare)
+-> Stream interface : It has filter() method where we can specify the predicate according to our needs
+
+/------------------------------------------------------------/
+
+# difference between array and arrayList :
+-> Array fixed/static in size, ArrayList variable-length/dynamic in size.
+-> It is mandatory to provide size of array during initialization, Arraylist has a default size of 10 if no size is provided.
+-> Array is faster than arrayList, as the resize operation slows down the performance of arraylist
+-> Array can store both primitive type and Objects, ArrayList can only hold objects.
+-> we can't use generic with Array as it is not convertible, But Arraylist allow generics/type. ArrayList is type safe
+-> Array can be multi dimensional, but arraylist is single dimensional.
+
+# Difference between ArrayList and LinkedList :
+-> ArrayList uses dynamic array internally, LinkedList uses doubly linked list.
+-> Manipulation is slower in arraylist as it uses an array internally. So, if an element is removed all bits are shifted in memory. But in case
+   of Linked list it is faster as no bit shifting is required.
+-> ArrayList can only act as a list, while LinkedList can act as a list an queue.
+-> ArrayList is better for storing and accessing data, LinkedList is better for manipulating data.
+
+                        Algorithm           ArrayList   LinkedList
+                        seek front            O(1)         O(1)
+                        seek back             O(1)         O(1)
+                        seek to index         O(1)         O(N)
+                        insert at front       O(N)         O(1)
+                        insert at back        O(1)         O(1)
+                        insert after an item  O(N)         O(1)
+
+# Difference between ArrayList and Vector :
+-> Vector is synchronized, while arraylist is not.
+-> Vector is legacy class, Arraylist is not.
+-> ArrayList increases 50% of its current size if number of elements exceeds its capacity. Vector increases 100% of its current size.
+-> Array List is faster as vector is synchronized.
+
+/------------------------------------------------------------/
+
+
+LinkedList:
+Java LinkedList class uses a doubly linked list to store the elements.
+It provides a linked-list data structure. It inherits the AbstractList class and implements List and Deque interfaces.
+
+-> Java LinkedList class can contain duplicate elements.
+-> Java LinkedList class maintains insertion order.
+-> Java LinkedList class is non synchronized.
+-> In Java LinkedList class, manipulation is fast because no shifting needs to occur.
+-> Java LinkedList class can be used as a list, stack or queue.
+
+/------------------------------------------------------------/
+
+
+
+
+
+
+
