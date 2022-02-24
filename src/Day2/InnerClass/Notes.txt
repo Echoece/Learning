@@ -1,0 +1,55 @@
+-> Java inner class or nested class is a class that is declared inside the class or interface.
+-> We use inner classes to logically group classes and interfaces in one place to be more readable and maintainable.
+-> Additionally, it can access all the members of the outer class, including private data members and methods.
+-> A nested class is also a member of its outer class.
+
+# Advantage of Java inner classes
+1. Nested classes represent a particular type of relationship that is it can access all the members (data members and methods) of the
+   outer class, including private. However, the outer class doesn't have access to its nested class members.
+2. Nested classes are used to develop more readable and maintainable code because it logically group classes and interfaces in one place only.
+3. Code Optimization: It requires less code to write
+
+//----------------------------------------------------------------------
+
+There are two types of nested classes non-static and static nested classes. The non-static nested classes are also known as inner classes.
+
+-> Non-static nested class (inner class): In the case of normal or regular inner classes, without an outer class object existing, there
+   cannot be an inner class object. i.e., an object of the inner class is always strongly associated with an outer class object.
+        1. Member inner class : A class created within class and outside method.
+        2. Anonymous inner class : A class created for implementing an interface or extending class. The java compiler decides its name.
+        3. Local inner class : A local inner class can be declared within a block. This block can be either a method body,
+                               initialization block, for loop, or even an if statement.
+
+-> Static nested class: A static class was created within the class. In the case of static nested class, Without an outer class object
+   existing, there may be a static nested class object. i.e., an object of a static nested class is not strongly associated with the outer class object.
+
+Note: An interface created within class or interface is called a nested interface.
+
+//----------------------------------------------------------------------
+
+# Anonymous inner class:
+=> An anonymous class must always extend a super class or implement an interface but it cannot have an explicit extends or implements clause.
+=> An anonymous class must implement all the abstract methods in the super class or the interface.
+=> An anonymous class always uses the default constructor from the super class to create an instance.
+
+# Local Inner Class:
+-> The scope of the local inner class is restricted to the block they are defined in. So, a local inner class cannot be
+   instantiated from outside the block where it is created in.
+-> Till JDK 7, the Local inner class can access only the final local variable of the enclosing block. However, From JDK 8, it is
+   possible to access the non-final local variable of enclosing block in the local inner class. A local class has access to the members of its enclosing class.
+-> Local inner classes can extend an abstract class or implement an interface.
+-> local inner class can’t be marked as private, protected, static and transient. But can be marked as either abstract or final, not both at the same time.
+
+# Member inner class:
+-> can access any private instance variable/method of outer class, as it has a reference to the outer class.
+-> we cant have any static method in nested inner class
+
+# Static nested class:
+-> It can access static data members of the outer class, including private.
+-> The static nested class cannot access non-static (instance) data members or methods
+
+# Nested Interface
+-> The nested interface must be public if it is declared inside the interface, but it can have any access modifier if declared within the class
+-> Nested interfaces are declared static
+
+
