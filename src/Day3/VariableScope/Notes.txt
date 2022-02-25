@@ -1,0 +1,30 @@
+Member Variables (Class Level Scope) :
+These are the variables that are declared inside the class but outside any function have class-level scope. We can access these
+variables anywhere inside the class. If we don't use private, it will be accessible from the entire package.
+
+Local Variables (Method Level Scope) :
+These are the variables that are declared inside a method, constructor, or block have a method-level or block-level scope or a loop and cannot
+be accessed outside in which it is defined. Variables declared inside a pair of curly braces {} have block-level scope.
+
+Scopes and Variable Shadowing:
+Imagine that we have a class variable, and we want to declare a method variable with the same name. Then after the method variable
+declaration it will have the value of method variable. But again outside the method scope it will have the class variable. This is
+called variable shadowing and it is not recommended. Best to use this.variable_name to differentiate between them.
+
+    -> We can declare variables anywhere in the program but it has limited scope.
+    -> A variable can be a parameter of a method or constructor.
+    -> A variable can be defined and declared inside the body of a method and constructor.
+    -> It can also be defined inside blocks and loops.
+    -> Variable declared inside main() function cannot be accessed outside the main() function
+
+
+                                            Modifier      Package  Subclass  World
+
+                                            public          Yes      Yes     Yes
+
+                                            protected       Yes      Yes     No
+
+                                            Default (no
+                                            modifier)       Yes       No     No
+
+                                            private         No        No     No

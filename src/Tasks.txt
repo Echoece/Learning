@@ -31,12 +31,12 @@ ZoneId, ZoneOffset,ZonedDateTime
 Anonymous class = Done
 Exception Handling = Done
 
-Variable scope
+Variable scope = Done
 
-Lambda
-Method reference
+Lambda = Done
+Method reference = Done
 
 Functional interface
-Java.util.function.Predicate
-Java.util.function.Function
-java.util.fucntion.BiFunction
+Java.util.function.Predicate    = Done
+Java.util.function.Function     = Done
+java.util.fucntion.BiFunction   = Done
