@@ -3,22 +3,22 @@ Day 1:
 1. Wrapper class = Done
 2. Inheritance  = Done
 3. Polymorphism = Done
-4. Exception Handling =
+4. Exception Handling = Done
 5. Interface    = Done
 
 
 Day 2 :
-1. Custom Exception
+1. Custom Exception = Done
 2. Abstract class & Interface   = Done
-3. Inner class
-4. Java collection
+3. Inner class  = Done
+4. Java collection  = Done
 ArrayList
 LinkedList
 HashSet
 LinkedHashSet
 HashMap
 LinkedHashMap
-Comparable & Comparator
+Comparable & Comparator = Done
 
 Day 3:
 
@@ -27,11 +27,12 @@ LocalDate , LocalDateTime
 DateTime Formatter
 Temporal Adjusters
 ZoneId, ZoneOffset,ZonedDateTime
+
 Lambda
-Anonymous class
+Anonymous class = Done
 Variable scope
 Method reference
-Exception Handling
+Exception Handling = Done
 Functional interface
 Java.util.function.Predicate
 Java.util.function.Function

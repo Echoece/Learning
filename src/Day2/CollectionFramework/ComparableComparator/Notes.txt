@@ -1,0 +1,41 @@
+Comparable: it is an interface, and it defines ways of comparing an object with other object of same type. It is called
+            the classes 'natural ordering'.
+            To be able to sort any object, that object class need to implement the comparable interface (and override the
+            compareTo(T t) method.)
+
+Collection.Comparator: It is also an interface, and we can use this to sort objects using any of their attribute (variables).
+            To be able to use this, we need to define a class that extends Collection.Comparator interface (and override the
+            compare(T t1, T t2) )
+
+
+For example, lets say a Student class have id, name and cgpa attributes. So in case we want a natural order in a collection
+of Student object, we can simply make the class Implement Comparable interface and override the compareTo() method.
+
+But lets say, we want to have different sorting method for id, name, cgpa etc. In this case, we cant use comparable. Here,
+we have to  use comparator. For each attribute we have to declare a class implementing the Collection.Comparator interface (That's
+unnecessary, as we can use anonymous class or better yet, the newer lambda expression ).
+
+code:
+
+List<Student> studentList = ......;  // add list items here
+
+studentList.sort();  // here the argument is null, in this case comparable interface is used for natural ordering.
+
+studentList.sort( (s1,s2)-> (s1.id).compare(s2.id) );   // here we pass an implementation of comparator interface by
+                                                           using lambda expression. Here ordering will be according to
+                                                           our logic.
+
+
+
+We can use the sort method in collection class as it is and just pass the collection, or we can write our own custom comparator that fits to our need.
+the sort() method takes a collection and a comparator which we can define as a anonymous class inside or even better lambda expression.
+
+    Collections.sort(people,new Collection.Comparator<Person>(){
+        @Override
+        public int compare(Person lhs,Person rhs) {
+            //     To-Do ->
+            //          return  1 if right side should be before left side
+            //          return -1 if left side should be before right side
+            //          return  0 otherwise (meaning the order stays the same)
+        }
+    });

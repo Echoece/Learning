@@ -1,0 +1,133 @@
+The Exception Handling in Java is one of the powerful mechanism to handle the runtime errors so that the normal flow of the application can be maintained.
+In Java, an exception is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime.
+
+Note: only cases when finally block wont execute might be when JVM exits/has error or System.exit(0) call before the finally block.
+
+# Exception Hierarchy:
+-> Throwable class extends the object
+-> it  has two subclasses :
+    1. Exception (These errors are developers responsibility to handle)
+    2. Error (deals with jvm error like stack overflow, low memory etc. Java handles it)
+
+# Checked Vs Unchecked Exception:
+There is two types of exceptions in java:
+
+    1. Checked : Java compiler forces us to handle these. The Exception class is the superclass of checked exceptions,
+       so we can create a custom checked exception by extending Exception.
+       Example: IOException, SQLException, ParseException, ClassNotFoundException, InterruptedException, FileNotFoundException,
+                InstantiationException, IllegalAccessException etc
+
+    2. Unchecked : Its upto developer to decide if it will be handled or not. The RuntimeException class is the superclass
+       of all unchecked exceptions, so we can create a custom unchecked exception by extending RuntimeException.
+       Example: ClassCastException, ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException, NegativeArraySizeException,
+                ArrayStoreException, IllegalArgumentException, IllegalThreadStateException, SecurityException etc
+
+# Order of Exception:
+The try catch block must always maintain order in the catch block from child to parent. If we put
+parent class first, it will handle all the exception and child class will never handle it.
+
+Example: The following  code will never reach the arithmetic exception cause the parent class Exception catch block comes first.
+            try{
+            }catch (Exception e){
+            }
+            catch (ArithmeticException e){
+            }
+The correct order should be:
+            try{
+            }catch (ArithmeticException e){
+            }
+            catch (Exception e){
+            }
+
+# Important methods of Exception class:
+    1. String getMessage() : Prints the root cause of error message.
+    2. String toString() : By default if we try to print an object, it automatically calls the toString
+       method. So we dont have to specify it.
+    3. String printStackTrace(): it prints the stack trace of the
+
+# Internal working of java try-catch block:
+The JVM firstly checks whether the exception is handled or not. If exception is not handled, JVM provides a default exception
+handler that performs the following tasks:
+        -> Prints out exception description.
+        -> Prints the stack trace (Hierarchy of methods where the exception occurred).
+        -> Causes the program to terminate.
+But if the application programmer handles the exception, the normal flow of the application is maintained, i.e., rest of the code is executed.
+
+//----------------------------------------------------------------------
+
+# Exception Handling with Method Overriding in Java:
+
+-> If the superclass method does not declare an exception, subclass overridden method cannot declare the checked exception but it
+   can declare unchecked exception.
+-> If the superclass method declares an exception, subclass overridden method can declare
+                1) same exception,
+                2) subclass exception or
+                3) no exception
+    but cannot declare parent exception.
+
+//----------------------------------------------------------------------
+
+# Throw vs Throws
+throw ::
+    The throw keyword in Java is used to explicitly throw an exception from a method or any block of code.
+    We can throw either checked or unchecked exception.This exception i.e, Instance must be of type Throwable or a subclass of Throwable.
+
+    The flow of execution of the program stops immediately after the throw statement is executed and the nearest
+    enclosing try block is checked to see if it has a catch statement that matches the type of exception. If it finds
+    a match, controlled is transferred to that statement otherwise next enclosing try block is checked and so on. If
+    no matching catch is found then the default exception handler will halt the program.
+
+    The throw keyword is mainly used to throw custom exceptions. It is kind of alternate of returning from a method in
+    some cases (check Exception propagation example).
+
+throws ::
+    throws is a keyword in Java which is used in the signature of method to indicate that this method might throw one
+    of the listed type exceptions. The caller to these methods has to handle the exception using a try-catch block.
+
+    => throws keyword is required only for checked exception and usage of throws keyword for unchecked exception is meaningless.
+    => throws keyword is required only to convince compiler and usage of throws keyword does not prevent abnormal termination of program.
+    => By the help of throws keyword we can provide information to the caller of the method about the exception.
+
+//----------------------------------------------------------------------
+
+# Try With Resource:
+This is a new feature introduced in java 1.7.
+Context: Context is the area of the program. For java program, stack is the context of the program.
+
+Things like heap, mouse ,keyboard, printer, internet , hard-disk , Database etc are external to the program.
+It is not part of the context. The issue is, when we use external resources, we must return it. Otherwise program
+will occupy that resource and will not be available for other program use. This will cause memory leak.
+
+-> for heap area, Garbage collector automatically deallocate free memory location, so this is not required to handle by
+   developers.
+-> Rest of the resources, developers are responsible to close them after using. In that case we can use finally block to
+   close the resources, or we can use the new java feature try with resource.
+-> Here we dont need to specify the finally block to close the resource, it will be automatically closed. The catch or finally
+   block is purely optional depending on our requirement.
+-> try with resource can only close the resources that implement the interface AutoClosable. It has a method close() defined there.
+-> we can use multiple resources inside try with resource by separating them with semicolon.
+   Example: try (FileInputStream f= new FileInputStream("a.txt"); Scanner sc= new Scanner(f); )
+
+//----------------------------------------------------------------------
+
+# User Defined Exception:
+
+Following steps are followed for the creation of user-defined Exception:
+
+=>  The user should create an exception class as a subclass of Exception class. Since all the exceptions are subclasses of Exception class,
+    the user should also make his class a subclass of it. Example: class MyException extends Exception{}
+=>  We can write a default constructor in his own exception class.
+=>  We can also create a parameterized constructor with a string as a parameter.
+    We can use this to store exception details. We can call super class(Exception) constructor from this and send the string there.
+                MyException(String str)
+                {
+                   super(str);
+                }
+
+=>  To raise exception of user-defined type, we need to create an object to his exception class and throw it using throw clause, as:
+                -> MyException myException = new MyException(“Exception details”);
+                   throw myException;
+                or,
+                -> throw new MyException(“Exception details”);
+
+//----------------------------------------------------------------------
