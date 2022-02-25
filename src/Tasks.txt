@@ -28,11 +28,14 @@ DateTime Formatter
 Temporal Adjusters
 ZoneId, ZoneOffset,ZonedDateTime
 
-Lambda
 Anonymous class = Done
-Variable scope
-Method reference
 Exception Handling = Done
+
+Variable scope
+
+Lambda
+Method reference
+
 Functional interface
 Java.util.function.Predicate
 Java.util.function.Function
