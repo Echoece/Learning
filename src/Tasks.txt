@@ -35,8 +35,8 @@ Variable scope = Done
 
 Lambda = Done
 Method reference = Done
+Functional interface = Done
 
-Functional interface
 Java.util.function.Predicate    = Done
 Java.util.function.Function     = Done
 java.util.fucntion.BiFunction   = Done

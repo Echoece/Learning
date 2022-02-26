@@ -1,0 +1,46 @@
+-> In Java date is a long number that contains milliseconds passed since 1st January, 1970
+-> Java follows starting year of calender in 1900.
+
+old date API - > Date class from java.util , it  has some property (mutable, contains both date and time, counts
+                 milli second) that might be issue. They don't provide thread safety.
+                 Example: Java.lang.System, java.util.Date, java.util.Calendar, java.text.SimpleDateFormat, java.util.TimeZone
+
+new Date API -> it is known as joda Date and time API. It has separate class for LocalDate, LocalTIme and LocalDateTime.
+                These classes also represent the time since jan 1, 1970. But these classes are immutable. So whenever we change
+                we will get a new object of these classes. They provide thread safety.
+
+# New Date Time API in Java 8:
+All classes below is in the package java.time.
+
+LocalDate:           It represents a year-month-day in the ISO calendar and is useful for representing a date without a time. It can
+                     be used to represent a date only information such as a birth date or wedding date.
+
+LocalTime:           It deals in time only. It is useful for representing human-based time of day, such as movie times, or the opening
+                     and closing times of the local library.
+
+LocalDateTime:       It handles both date and time, without a time zone. It is a combination of LocalDate with LocalTime.
+
+ZonedDateTime:       It combines the LocalDateTime class with the zone information given in ZoneId class. It represent a
+                     complete date time stamp along with timezone information.
+
+OffsetTime:          It handles time with a corresponding time zone offset from Greenwich/UTC, without a time zone ID.
+
+OffsetDateTime:      It handles a date and time with a corresponding time zone offset from Greenwich/UTC, without a time zone ID.
+
+Clock :              It provides access to the current instant, date and time in any given time-zone. Although the use of the Clock class is
+                     optional, this feature allows us to test your code for other time zones, or by using a fixed clock, where time does not change.
+
+Instant :            It represents the start of a nanosecond on the timeline (since EPOCH) and useful for generating a timestamp to represent
+                     machine time. An instant that occurs before the epoch has a negative value, and an instant that occurs after the epoch has a positive value.
+
+Duration :           Difference between two instants and measured in seconds or nanoseconds and does not use date-based constructs such as
+                     years, months, and days, though the class provides methods that convert to days, hours, and minutes.
+
+Period :             It is used to define the difference between dates in date-based values (years, months, days).
+
+ZoneId :             It states a time zone identifier and provides rules for converting between an Instant and a LocalDateTime.
+
+ZoneOffset :         It describe a time zone offset from Greenwich/UTC time.
+
+DateTimeFormatter :  It comes up with various predefined formatter, or we can define our own. It has parse() or format()
+                     method for parsing and formatting the date time values.
