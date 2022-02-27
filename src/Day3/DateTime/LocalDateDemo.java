@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 
 // Java LocalDate class is an immutable class that represents Date with a default format of yyyy-mm-dd
+// https://o7planning.org/13667/java-localdate for detailed examples.
 public class LocalDateDemo {
     public static void main(String[] args) {
         /*
@@ -20,6 +21,8 @@ public class LocalDateDemo {
         // Obtains an instance of LocalDate from a text string such as 2007-12-03, check the documentation for details about Date time formatter
         LocalDate localDate4 = LocalDate.parse("2015-11-20", DateTimeFormatter.ISO_LOCAL_DATE);
         LocalDate localDate5 = LocalDate.from(localDate);           // Obtains an instance of LocalDate from a temporal object.
+
+        localDate.range(ChronoField.DAY_OF_MONTH);
 
         // 2. different ways getting LocalDateTime from LocalDate Object
         LocalDateTime localDateTime = localDate.atTime(10,15,53,200); // this has 2 more overload, each excluding nanosecond and seconds

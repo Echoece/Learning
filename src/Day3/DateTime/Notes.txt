@@ -7,7 +7,45 @@ old date API - > Date class from java.util , it  has some property (mutable, con
 
 new Date API -> it is known as joda Date and time API. It has separate class for LocalDate, LocalTIme and LocalDateTime.
                 These classes also represent the time since jan 1, 1970. But these classes are immutable. So whenever we change
-                we will get a new object of these classes. They provide thread safety.
+                we will get a new object of these classes. As a result, they provide thread safety.
+
+//----------------------------------------------------------------------
+
+#  Temporal Adjusters:
+The TemporalAdjusters class provides static methods to obtain useful and common TemporalAdjuster objects, such as:
+    -> Finding the first or last day of the month.
+    -> Finding the first day of next month.
+    -> Finding the first or last day of the year.
+    -> Finding the first day of next year.
+    -> Finding the first or last "day-of-week" within a month, such as "first Wednesday in June".
+    -> Finding the next or previous "day-of-week", such as "next Thursday".
+All methods provided by TemporalAdjusters are static and return a TemporalAdjuster object.
+
+//----------------------------------------------------------------------
+# ZoneId:
+The ZoneId class is used to identify a time zone and provide the conversion rules between LocalDateTime and Instant.
+In terms of offset rules, ZoneId is divided into 2 types:
+    1. ZoneId with a fixed time zone offset, such as "UTC+07", "GMT-05:40", "UT-03", "+05:50".
+    3. ZoneId with a non-fixed time zone offset, such as "Europe/Paris". Its time zone offset depends on the time on the timeline or depends on the day-of-year.
+
+For example, ZoneId.of("Asia/Ho_Chi_Minh") is the time zone identifier of southern Vietnam. During the period from 1960 to before June 13th, 1975, the time
+zone offset of this ZoneId was +8, but later changed to +7 to unify with northern Vietnam.
+
+//----------------------------------------------------------------------
+ZoneOffset:
+The ZoneOffset class is a subclass of ZoneId. The ZoneOffset class declares three constants:
+    MAX: It is the maximum supported zone offsets.
+    MIN: It is the minimum supported zone offsets.
+    UTC: It is the time zone offset constant for UTC.
+
+//----------------------------------------------------------------------
+ZonedDateTime:
+ZonedDateTime is a class representing date and time with time zone information, located in the ISO-8601 calendar system, such as
+2007-12-03T10:15:30+01:00 Europe/Paris.
+With a LocalDateTime object containing only date and time information, we add time zone information to create a
+ZonedDateTime object containing date, time, and time zone information.
+
+//----------------------------------------------------------------------
 
 # New Date Time API in Java 8:
 All classes below is in the package java.time.
@@ -44,3 +82,5 @@ ZoneOffset :         It describe a time zone offset from Greenwich/UTC time.
 
 DateTimeFormatter :  It comes up with various predefined formatter, or we can define our own. It has parse() or format()
                      method for parsing and formatting the date time values.
+
+//----------------------------------------------------------------------

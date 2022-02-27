@@ -1,0 +1,86 @@
+isSupported():
+This boolean method is important to check when working with date time API. As many methods works with arguments of type interface,
+we need to check compatibility during runtime. There are few other ways of checking like isSupportedBy() etc.
+
+//----------------------------------------------------------------------
+
+TemporalAdjuster:
+The TemporalAdjuster interface is a tool for adjusting a Temporal object to create a copy. Basically, TemporalAdjuster
+exists to externalize a process of adjusting Temporal objects rather than adjusting them directly.
+
+https://o7planning.org/13749/java-temporaladjuster for detailed examples.
+
+//----------------------------------------------------------------------
+
+TemporalAdjusters:
+The TemporalAdjusters class provides static methods to obtain useful and common TemporalAdjuster objects, such as:
+    -> Finding the first or last day of the month.
+    -> Finding the first day of next month.
+    -> Finding the first or last day of the year.
+    -> Finding the first day of next year.
+    -> Finding the first or last "day-of-week" within a month, such as "first Wednesday in June".
+    -> Finding the next or previous "day-of-week", such as "next Thursday".
+
+https://o7planning.org/13727/java-temporaladjusters for detailed examples.
+
+//----------------------------------------------------------------------
+
+TemporalAccessor:
+The TemporalAccessor interface simulates a common concept between the concepts of date, time, time offset, time-zone offset
+and era. It provides basic methods to get information from these objects.
+
+classes implementing this interface:
+DayOfWeek, HijrahDate, HijrahEra, Instant, IsoEra, JapaneseDate, JapaneseEra, LocalDate, LocalDateTime, LocalTime, MinguoDate, MinguoEra, Month, MonthDay,
+OffsetDateTime, OffsetTime, ThaiBuddhistDate, ThaiBuddhistEra, Year, YearMonth, ZonedDateTime, ZoneOffset
+
+https://o7planning.org/13761/java-temporalaccessor for detailed examples.
+
+//----------------------------------------------------------------------
+
+Temporal:
+The Temporal interface simulates a common concept between the concepts of date, time and time-offset. It provides basic
+methods to get information from these objects.
+
+classes implementing this interface:
+HijrahDate, Instant, JapaneseDate, LocalDate, LocalDateTime, LocalTime, MinguoDate, OffsetDateTime, OffsetTime, ThaiBuddhistDate, Year, YearMonth, ZonedDateTime
+
+https://o7planning.org/13725/java-temporal for detailed example.
+
+//----------------------------------------------------------------------
+
+# Difference Between Temporal and TemporalAccessor?
+TemporalAccessor includes date,time,time offset, time zone and era. While Temporal includes date, time and time offset only.
+The Temporal interface extends from the TemporalAccessor interfaceAs such, Interface Temporal reduces the number of concepts
+it represents compared to TemporalAccessor. It provides more detailed methods of these concepts.
+
+//----------------------------------------------------------------------
+
+TemporalQuery :
+The TemporalQuery interface is a tool for querying a TemporalAccessor object to extract information. Basically,
+TemporalQuery exists to externalize the querying information of the TemporalAccessor object instead of extracting the information directly.
+
+https://o7planning.org/13739/java-temporalquery for detailed example.
+//----------------------------------------------------------------------
+
+TemporalQueries:
+The TemporalQueries class provides static methods to obtain common and useful TemporalQuery objects.
+The information received from these TemporalQuery can be:
+                -> Chronology
+                -> LocalDate
+                -> LocalTime
+                -> ZoneOffset
+                -> Precision
+                -> Zone
+                -> ZoneId
+Use cases:
+        1. Find precision of a TemporalAccessor. For example- LocalDate has precision of days, LocalTime has precision of Nanoseconds.
+           Full table available on the link
+        2.obtain information about the Chronology associated with a TemporalAccessor.
+https://o7planning.org/13737/java-temporalqueries for detailed example
+
+//----------------------------------------------------------------------
+
+Chronology:
+
+
+

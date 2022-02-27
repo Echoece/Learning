@@ -5,23 +5,9 @@ programming deals with certain key concepts such as pure function, immutable sta
 
 //----------------------------------------------------------------------
 
-Predicate:
-interface Predicate<T> Represents a predicate (boolean-valued function) of one argument. This is a functional interface whose functional method is test(Object).
-This is a functional interface and can therefore be used as the assignment target for a lambda expression or method reference.
-
-Methods:
-1. Predicate<T> and(Predicate<? super T> other)      : Returns a composed predicate that represents a short-circuiting logical AND of this predicate and another.
-2. static <T> Predicate<T> isEqual(Object targetRef) : Returns a predicate that tests if two arguments are equal according to Objects.equals(Object, Object).
-3. Predicate<T>	negate()                             : Returns a predicate that represents the logical negation of this predicate.
-4. Predicate<T>	or(Predicate<? super T> other)       : Returns a composed predicate that represents a short-circuiting logical OR of this predicate and another.
-5. boolean	test(T t)                                : Evaluates this predicate on the given argument. Basically runs the predicate,
-                                                       similar to apply() for Function interface
-
-//----------------------------------------------------------------------
-
 Function:
-
 Interface Function<T, R> represents a function that takes one argument T type and produces a result of R type.
+-> This is a functional interface whose functional method is apply(Object).
 
 Methods:
     1. R apply(T t): Applies this function to the given argument.
@@ -41,5 +27,50 @@ BiFunction:
 -> Same as function, but it takes two arguments.
 -> Interface BiFunction<T,U,R> Represents a function that accepts two arguments(T and U) and produces a result (R).
 -> It only has apply and andThen method. Doesnt have compose method like Function.
+
+//----------------------------------------------------------------------
+
+Predicate:
+interface Predicate<T> Represents a predicate (boolean-valued function) of one argument. This is a functional interface and can
+therefore be used as the assignment target for a lambda expression or method reference.
+-> This is a functional interface whose functional method is test(Object).
+
+Methods:
+1. Predicate<T> and(Predicate<? super T> other)      : Returns a composed predicate that represents a short-circuiting logical AND of this predicate and another.
+2. static <T> Predicate<T> isEqual(Object targetRef) : Returns a predicate that tests if two arguments are equal according to Objects.equals(Object, Object).
+3. Predicate<T>	negate()                             : Returns a predicate that represents the logical negation of this predicate.
+4. Predicate<T>	or(Predicate<? super T> other)       : Returns a composed predicate that represents a short-circuiting logical OR of this predicate and another.
+5. boolean	test(T t)                                : Evaluates this predicate on the given argument. Basically runs the predicate,
+                                                       similar to apply() for Function interface
+
+In other words predicate is exactly same as Function<T, boolean>. And UnaryOperator is same as Function<T,T>
+
+//----------------------------------------------------------------------
+
+UnaryOperator:
+Represents an operation on a single operand that produces a result of the same type as its operand. This is a specialization
+of Function for the case where the operand and result are of the same type. This interface extends Function<T,T> interface.
+-> This is a functional interface whose functional method is apply() inherited from Function<T,T> interface.
+
+Example -
+        UnaryOperator<Integer> xor = a -> a ^ 1;
+        xor.apply(5);
+
+//----------------------------------------------------------------------
+
+Consumer:
+Represents an operation that accepts a single input argument and returns no result. Unlike most other functional
+interfaces, Consumer is expected to operate via side-effects.
+->  This is a functional interface whose functional method is accept(Object).
+
+//----------------------------------------------------------------------
+
+Supplier:
+It represents a function which does not take in any argument but produces a value of type T.
+-> This is a functional interface whose functional method is get().
+
+Example -
+        Supplier<Double> randomValue = () -> Math.random();
+        randomValue.get();
 
 //----------------------------------------------------------------------
