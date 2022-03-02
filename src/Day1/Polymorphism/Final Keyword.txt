@@ -8,7 +8,7 @@ Note: If we dont follow the above rules, we will get compile time error.
 
 -> Child classes can inherit the final methods (but of course they cant override it).
 -> A final variable that is not initialized at the time of declaration is known as blank/uninitialized final variable. It
-   can only be initialize in constructor. Example: For PAN or CARD number of an employee.
+   can only be initialize in constructor. Use case example: For PAN or CARD number of an employee.
 -> A static final variable that is not initialized at the time of declaration is known as static blank final variable. It
    can be initialized only in static block.
 -> If we declare any parameter of a method as final, we cannot change the value of it inside the method anymore.

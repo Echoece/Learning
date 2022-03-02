@@ -1,0 +1,137 @@
+# Stream API:
+To process objects of the collection, in 1.8 version Streams concept introduced (Similar to LinQ in C#). Stream is an interface present in java.util.stream.
+It is a simple 3 step process of,
+                  1) getting a stream from collection object (source).
+                  2) perform operations on the stream ( intermediate operation(s) ).
+                  3) collect the stream back to collection/other data types (terminal operation).
+Important: Don't leave an instantiated stream unconsumed, as that will lead to memory leaks. We need to close the unconsumed streams ( those without terminal
+           method) using close() method.
+
+Note: -> Stream API is slower than vanilla loops. So in case of performance improvement, we can replace stream API codes with vanilla loops
+      -> Java 8 streams can't be reused (check example). Any attempt to reuse the same reference after calling the terminal operation will trigger
+         the IllegalStateException (its a runtime exception/unchecked exception: code will compile fine, but will throw exception at runtime).
+      -> intermediate operations which reduce the size of the stream should be placed before operations which are applying to each element. So
+         we need to keep methods such as skip(), filter(), and distinct() at the top of our stream pipeline.
+
+//----------------------------------------------------------------------
+
+# What is the differences between java.util.streams and java.io streams?
+-> java.util streams meant for processing objects from the collection. Ie, it represents a stream of objects from the collection.
+-> java.io streams meant for processing binary and character data with respect to file. i.e it represents stream of binary data or character data from the file.
+
+//----------------------------------------------------------------------
+
+# What is the difference between collection and stream?
+-> if we want to represent a group of individual objects as a single entity then we should go for collection
+-> if we want to process a group of objects from the collection then we should go for streams
+
+//----------------------------------------------------------------------
+
+we can create a stream object to the collection by using stream()method of Collection interface. stream() method is a default
+method added to the Collection in 1.8 version. Once we got the stream, by using that we can process objects of that collection.
+
+we can process the objects in the following two phases:
+
+    1.configuration : we can configure either by using filter mechanism or by using map mechanism.
+        a. Filtering: Filter is used for filtering the data. We can configure a filter to filter elements from the collection based on some
+                      boolean condition by using filter() method of Stream interface.
+                      Interface: public Stream filter(Predicate<T> t), here (Predicate<T > t ) can be a boolean valued function/lambda expression
+                      Example: Stream s = dummyCollection.stream().filter( i -> i%2 == 0);
+
+        b. Mapping  : By using map, we can transform the object values.. If we want to create a separate new object, for every object present
+                      in the collection based on our requirement then we should go for map () method of Stream interface.
+                      Interface: public Stream map (Function f)
+                      Example : Stream s = dummyCollection.stream().map( i -> i = i+10);
+
+    2.processing    : Some of the different ways of processing is described below.
+        a. collect() method: This method collects the elements from the stream and adding to the specified to the collection indicated (specified) by argument.
+
+                             Examples: ( 2. 3. double, 4. int. last two are primitive type example )
+                             List<Integer> list1 = list.stream().filter(i -> i%2==0).collect(Collectors.toList());                          // 1. collection example
+                             String listToString = productList.stream().map(Product::getName).collect(Collectors.joining(", ", "[", "]"));  // 2. String example, parameters of joining method (delimiter, prefix, suffix)
+                             double averagePrice = productList.stream().collect(Collectors.averagingInt(Product::getPrice));                // 3. double example
+                             int summingPrice = productList.stream().collect(Collectors.summingInt(Product::getPrice)  ;                    // 4. int example
+
+        b. count() method  : this method returns number of elements present in the stream.
+                             Example:
+                             long count = list.stream().filter( s ->s.length()==5).count();
+
+        c. sorted()method  : if we sort the elements present inside stream then we should go for sorted() method.the sorting can
+                             either default natural sorting order or customized sorting order specified by comparator
+                             Examples:
+                                 natural order:    List<String> list1 = list.stream().sorted().collect(Collectors.toList());
+                                 Customized order: List<String> list1 = list.stream().sorted((s1,s2) -> -s1.compareTo(s2)).collect(Collectors.toList());
+
+        d. min() and max() methods:
+                        a. min(Comparator c) : returns minimum value according to specified comparator.
+                                               Example: String min = list.stream().min((s1,s2) -> s1.compareTo(s2)).get()
+                        b. max(Comparator c) : returns maximum value according to specified comparator
+                                               Example: String max = list.stream().max((s1,s2) -> s1.compareTo(s2)).get();
+
+        e. forEach() method : this method will not return anything, will take lambda expression as argument and apply that lambda expression for each
+                              element present in the stream.
+                              Note: This one works on stream only, not on collection.
+                              Example : list.stream().forEach(s->sop(s));
+
+        f. toArray() method : we can use toArray() method to copy elements present in the stream into specified array
+
+        g. Stream.of()method: we can also apply a stream for group of values and for arrays.
+                              Example:
+                                       1. Stream s=Stream.of(99,999,9999,99999);
+                                       2. Double[] d={10.0,10.1,10.2,10.3};
+                                          Stream s1=Stream.of(d);
+
+//----------------------------------------------------------------------
+
+# Some method details:
+
+1. Stream<T> limit(long maxSize) : Returns a stream consisting of the elements of this stream, truncated to be no longer than maxSize in length.
+
+2. int	sum() : Returns the sum of elements in this stream. Not available in Streams, but available only in IntStream, LongStream and DoubleStream.
+
+3. boolean allMatch( Predicate<? super T> predicate ): It returns all elements of this stream which match the provided predicate. If the stream is
+                                                    empty then true is returned and the predicate is not evaluated.
+
+4. boolean anyMatch( Predicate<? super T> predicate ): It returns any element of this stream that matches the provided predicate. If the stream is
+                                                    empty then false is returned and the predicate is not evaluated.
+
+5. boolean noneMatch( Predicate<? super T> predicate): It returns elements of this stream match the provided predicate. If the stream is empty then
+                                                    true is returned and the predicate is not evaluated.
+
+//----------------------------------------------------------------------
+
+6. reduce() method:
+Parameter summary
+    -> identity    – the initial value for an accumulator, or a default value if a stream is empty and there is nothing to accumulate
+    -> accumulator – a function which specifies the logic of the aggregation of elements. As the accumulator creates a new value for every step of reducing,
+                     the quantity of new values equals the stream's size and only the last value is useful. This is not very good for the performance
+    -> combiner    – a function which aggregates the results of the accumulator. We only call combiner in a parallel mode to reduce the results of
+                     accumulators from different threads.
+
+This method has 3 overloads:
+1. Optional<T>	reduce(BinaryOperator<T> accumulator)  : Performs a reduction on the elements of this stream, using an associative accumulation function,
+                                                         and returns an Optional describing the reduced value, if any.
+2. T reduce(T identity, BinaryOperator<T> accumulator) : Performs a reduction on the elements of this stream, using the provided identity value and an
+                                                         associative accumulation function, and returns the reduced value.
+3. <U> U reduce(U identity,
+            BiFunction<U,? super T,U> accumulator,
+            BinaryOperator<U> combiner)                : Performs a reduction on the elements of this stream, using the provided identity, accumulation
+                                                         and combining functions.
+
+//----------------------------------------------------------------------
+map():
+                <R> Stream<R> map(Function<? super T,? extends R> mapper)
+
+The Stream.map() method performs an intermediate operation by using the mapper function. It produces a new stream for each element.
+It transforms all the streams into a single stream to provide the result. therefore, each element of the stream gets converted into a new stream.
+
+flatMap():
+                 <R> Stream<R> flatMap(Function<? super T,? extends Stream<? extends R>> mapper)
+
+In Java 8 Streams, the flatMap() method applies operation as a mapper function and provides a stream of element values. It means that in each
+iteration of each element the map() method creates a separate new stream. By using the flattening mechanism, it merges all streams into a single
+resultant stream. In short, it is used to convert a Stream of Stream into a list of values.
+
+for resource: https://stackoverflow.com/questions/26684562/whats-the-difference-between-map-and-flatmap-methods-in-java-8
+
+//----------------------------------------------------------------------

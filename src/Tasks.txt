@@ -22,11 +22,11 @@ Comparable & Comparator = Done
 
 Day 3:
 
-Java 8 Date Time
-LocalDate , LocalDateTime
-DateTime Formatter
-Temporal Adjusters
-ZoneId, ZoneOffset,ZonedDateTime
+Java 8 Date Time = Done
+    (   LocalDate , LocalDateTime
+        DateTime Formatter
+        Temporal Adjusters
+        ZoneId, ZoneOffset,ZonedDateTime    )
 
 Anonymous class = Done
 Exception Handling = Done
@@ -39,4 +39,34 @@ Functional interface = Done
 
 Java.util.function.Predicate    = Done
 Java.util.function.Function     = Done
-java.util.fucntion.BiFunction   = Done
+java.util.function.BiFunction   = Done
+
+
+Day 4 :
+
+1. Stream api  = Done
+Map & flatmap = done
+Filter = Done
+Sort = Done
+Limit = Done
+allMatch,anyMatch,noneMatch = done
+Reduce(Specialized reduce method sum(),max(),count() etc = Done
+foreach = Done
+
+Collectors
+Group by,
+
+Optional    =
+
+Java NIO    =
+Java Serialization  =
+Generics    =
+
+
+Day 5
+      1. Varargs,static import,autoboxing
+      2. Enums
+      3. Annotations
+           Built in annotation e.g @overridden,@Deprecated
+           Custom annotation
+JSR-303(Bean validation)
