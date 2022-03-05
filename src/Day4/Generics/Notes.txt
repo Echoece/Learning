@@ -1,0 +1,90 @@
+Generics means parameterized types. The main objective of Generics is to provide Type-Safety and to resolve Type-Casting problems.
+
+=> Generics means parameterized types. Using Generics, it is possible to create classes that work with different data types.
+=> Generics adds type safety feature.
+=> Generics work only with Reference Types, it wont work with primitive type like int,float etc.
+
+//----------------------------------------------------------------------
+Advantage of Java Generics:
+
+1. Generics provide type Safety:
+Without Generics, we can store any type of objects. But we can hold only a single type of objects in generics. It doesn't allow to store other objects.
+
+lets consider the class ArrayList, if we declare it like this :class ArrayList{} then we can add any type of Object in the add method. This is not
+desirable but it wont be compile time error. The problem will be at runtime where it will give ClassCastException exception.
+
+            ArrayList data= new ArrayList();
+            data.add("Habib");
+            data.add("Khabib");
+            data.add(1);                        // runtime error
+
+But with Generics, we can declare the class like class ArrayList<T{}. Now if we try to rune the code above it will give compile
+time error. This is how generics gives us type safety.
+
+             ArrayList<String> data= new ArrayList();
+             data.add("Habib");
+             data.add("Khabib");
+             data.add(1);                       // compile time error
+
+2. Type casting not required anymore:
+Before using generics, we needed to use type casting.
+            List list = new ArrayList();
+            list.add("hello");
+            String s = (String) list.get(0);    // typecasting
+
+After Generics, we don't need to typecast the object
+            List<String> list = new ArrayList<String>();
+            list.add("hello");
+            String s = list.get(0);             // no type casting required
+
+3. It is checked at compile time so problem will not occur at runtime. The good programming strategy says it is
+far better to handle the problem at compile time than runtime.
+
+4. Code Reuse: We can write a method/class/interface once and use it for any type we want.
+
+
+
+//----------------------------------------------------------------------
+
+Java Generics also comes with its own naming conventions. Usually, type parameter names are single, uppercase letters to make it
+easily distinguishable from java variables. The most commonly used type parameter names are:
+
+E – Element (used extensively by the Java Collections Framework, for example ArrayList, Set etc.)
+K – Key (Used in Map)
+V – Value (Used in Map)
+N – Number
+T – Type
+S,U,V etc. – 2nd, 3rd, 4th types
+
+# Wildcard:
+The ? (question mark) symbol represents the wildcard element. It means any type. If we write <? extends Number>, it means
+any child class of Number, e.g., Integer, Float, and double. Now we can call the method of Number class through any child class object.
+
+-> We can use a wildcard as a type of a parameter, field, return type, or local variable
+-> We can't use a wildcard as a type argument for a generic method invocation, a generic class instance creation, or a supertype.
+
+# Upper Bounded Wildcards:
+The purpose of upper bounded wildcards is to decrease the restrictions on a variable. It restricts the unknown type to be a specific type
+or a subtype of that type. It is used by declaring wildcard character ("?") followed by the extends (in case of, class) or implements
+(in case of, interface) keyword, followed by its upper bound.
+
+                        List<? extends Number>
+Suppose, we want to write the method for the list of Number and its subtypes (like Integer, Double). Using List<? extends Number> is suitable
+for a list of type Number or any of its subclasses whereas List<Number> works with the list of type Number only. So, List<? extends Number> is
+less restrictive than List<Number>.
+
+# Lower Bounded Wildcards:
+The purpose of lower bounded wildcards is to restrict the unknown type to be a specific type or a supertype of that type. It is used by declaring
+wildcard character ("?") followed by the super keyword, followed by its lower bound.
+
+                       List<? super Integer>
+Suppose, we want to write the method for the list of Integer and its supertype (like Number, Object). Using List<? super Integer> is suitable for
+a list of type Integer or any of its superclasses whereas List<Integer> works with the list of type Integer only. So, List<? super Integer> is less
+restrictive than List<Integer>.
+
+# Unbounded Wildcards:
+The unbounded wildcard type represents the list of an unknown type such as List<?>. This approach can be useful in the following scenarios: -
+        -> When the generic class contains the methods that don't depend on the type parameter.
+        -> When the given method is implemented by using the functionality provided in the Object class.
+
+//----------------------------------------------------------------------

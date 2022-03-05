@@ -1,0 +1,5 @@
+
+The static factory methods Collectors.groupingBy() and Collectors.groupingByConcurrent() provide us with functionality
+similar to the ‘GROUP BY' clause in the SQL language. We use them for grouping objects by some property and storing results in a Map instance.
+
+For example, if you have a list of people, how do you organise them by city? Is it better to visit London, Paris, or Tokyo?

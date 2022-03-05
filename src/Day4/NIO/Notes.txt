@@ -1,0 +1,57 @@
+So far looking very similar to Node Express asynchronous file operation. It's called the New IO.
+
+-> when we have a choice between using File(from java.io) and Path(from java.nio) we should always choose path.
+-> Channels can be used in both blocking an non-blocking mode (but we will mostly work with non blocking)
+
+# Channels and Buffers:
+-> Java NIO has more classes and components, but the Channel, Buffer and Selector forms the core of the API. The rest of
+   the components, like Pipe and FileLock are merely utility classes to be used in conjunction with the three core components.
+
+-> Typically, all IO in NIO starts with a Channel. A Channel is a bit like a stream. From the Channel data can be read into a Buffer.
+   Data can also be written from a Buffer into a Channel.
+
+-> here are several Channel and Buffer types, these channels cover UDP + TCP network IO, and file IO. Here is a list of the primary Channel
+   implementations in Java NIO:
+            FileChannel : he file channel is used for reading the data from the files.we cant create FileChannel object directly. getChannel() is used for that.
+                                                FileInputStream fis = new FileInputStream("D:\\testin.txt");
+                                                ReadableByteChannel rbc = fis.getChannel();
+
+            DatagramChannel: The datagram channel can read and write the data over the network via UDP (User Datagram Protocol)
+                                                DatagramChannel ch = DatagramChannel.open();        // for opening
+                                                DatagramChannel ch = DatagramChannel.close();       // for closing
+            SocketChannel : The datagram channel can read and write the data over the network via TCP (Transmission Control Protocol)
+                                                SocketChannel ch = SocketChannel.open();
+                                                ch.connect(new InetSocketAddress("host_name", port_number));
+            ServerSocketChannel : The ServerSocketChannel allows user to listen the incoming TCP connections, same as a web server. For every incoming connection a
+                                  SocketChannel is created.
+
+
+
+-> Here is a list of the core Buffer implementations in Java NIO:
+            ByteBuffer: has a subclass MappedByteBuffer (used to map a file to a buffer)
+            CharBuffer, DoubleBuffer, FloatBuffer, IntBuffer, LongBuffer, ShortBuffer
+
+
+# Selectors:
+A Selector allows a single thread to handle multiple Channel's. This is handy if your application has many connections (Channels) open,
+but only has low traffic on each connection. For instance, in a chat server.
+Switching between the threads is expensive for operating system. Therefore, for improving the system efficiency selector is use.
+
+To use a Selector you register the Channel's with it. Then you call it's select() method.  This method will block until there is an event
+ready for one of the registered channels. Once the method returns, the thread can then process these events. Examples of events are incoming
+connection, data received etc.
+
+
+# Java IO vs NIO:
+1. Blocking vs Non-blocking:
+            -> Java IO is blocking(with few exception), it means when a thread invoke read() or write() method, it is blocked till the operation is done.
+            -> Java NIO is non-blocking, it can request writing data to channel, but doesnt wait till its fully written. Thread can do other things meanwhile.
+
+2. Stream Oriented vs. Buffer Oriented:
+            -> Java IO is stream oriented I/O means we need to read one or more bytes at a time from a stream. It uses streams for transferring the data
+               between a data source/sink and a java program. The I/O operation using this approach is slow.
+            -> Java NIO is buffer oriented I/O approach. Data is read into a buffer from which it is further processed using a channel. In NIO we deal
+               with the channel and buffer for I/O operation.
+A major difference between these two is, stream can be used for one-way data transfer while channel provides a two-way data transfer facility.
+
+

@@ -21,7 +21,6 @@ LinkedHashMap
 Comparable & Comparator = Done
 
 Day 3:
-
 Java 8 Date Time = Done
     (   LocalDate , LocalDateTime
         DateTime Formatter
@@ -53,20 +52,117 @@ allMatch,anyMatch,noneMatch = done
 Reduce(Specialized reduce method sum(),max(),count() etc = Done
 foreach = Done
 
-Collectors
-Group by,
+Collectors = Done
+Group by = Done
 
-Optional    =
+Optional    = Done
 
-Java NIO    =
-Java Serialization  =
-Generics    =
+Java NIO    = Done
+Java Serialization  = done
+Generics    = Done
 
 
 Day 5
-      1. Varargs,static import,autoboxing
-      2. Enums
-      3. Annotations
+      1. Varargs,static import,autoboxing   = done
+      2. Enums   = done
+      3. Annotations    = done
            Built in annotation e.g @overridden,@Deprecated
            Custom annotation
-JSR-303(Bean validation)
+JSR-303(Bean validation)    = done
+
+                                                    Week2:
+Day 1
+    Servlet
+    GenericServlet & HttpServlet
+    Filter
+    Servlet Request
+    Server Response
+
+Day 2
+    Spring DI
+    Constructor Injection
+    Setter Injection
+    Autowiring
+    Autowiring with qualifier
+    Spring JDBC
+
+Day 3
+    Spring Boot install
+    Spring Rest Controller
+    Spring swagger
+    Spring validator
+    @InitBinder
+    Spring @Async,@Scheduled
+
+
+Day 4
+    JPA
+    Basic example
+    @OneToMany and @ManyToOne annotation
+    @OneToOne
+    @ManyToMany
+    Identity generator
+    Mapping enum type
+    @Converter
+    @Embeddable, @Embedded,@AttributeOverride
+    Inheritance Mapping
+    @MapsId
+
+Day 5
+    Spring Data
+    QueryMethod
+    @Query annotation
+    @Query annotation with SpEL
+    @Query with native sql
+    Query By example
+    Projections
+    Custom query method
+    Null handling on query Method
+    Property expression
+    @EnableSpringDataWebSupport
+    @Modifying
+    Auditing
+
+https://docs.spring.io/spring-data/jpa/docs/2.1.10.RELEASE/reference/html/
+
+
+
+       			Week 3
+Day 1
+    Spring boot Security
+    Jdbc authentication
+    Password hashing
+    Modify AccessDeniedException message
+    Access current login user
+    Logout
+    Method level security(@PreAuthorise,@Secured)
+
+
+
+Day 2
+    Spring Boot Email
+    Spring DATA pagination & Sorting
+    Spring DATA with stream & optional
+    Spring websocket
+
+
+Day 3
+    Externalization application properties
+    Spring Boot profiles
+    @Value,@ConfigurationProperties annotation
+    CORS support
+
+Day 4
+    Deployment spring boot app on linux
+    RDMS(raw query)
+
+
+                                                Week 4
+Day 1
+    Jhipster install
+    Create an entity using JDL file
+
+Day 2-5
+    Leave application using spring boot
+
+https://www.jhipster.tech/

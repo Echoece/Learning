@@ -1,0 +1,5 @@
+Java introduced a new class Optional in jdk8. It is a public final class and used to deal with NullPointerException in Java application.
+
+-> we used the isPresent() method to check if there is a value inside the Optional object. A value is present only if we have created Optional with a non-null value
+-> the argument passed to the of() method can't be null. Otherwise, we'll get a NullPointerException
+-> But in case we expect some null values, we can use the ofNullable() method.

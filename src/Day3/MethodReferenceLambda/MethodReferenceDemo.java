@@ -4,9 +4,7 @@ import java.util.function.BiFunction;
 
 public class MethodReferenceDemo {
     // constructor
-    public MethodReferenceDemo(String str) {
-        System.out.println(str.toUpperCase());
-    }
+    public MethodReferenceDemo(String str) { System.out.println(str.toUpperCase()); }
 
     public static void main(String[] args) {
         // 1. here the we are passing a reference to the println function, so the
@@ -39,16 +37,16 @@ public class MethodReferenceDemo {
         float result3 = adder3.apply(10.0f, 20.0f);
         System.out.println(result + " " + result2 + " "+ result3);
 
-        // 7. in case of multiple parameters, its a bit complicated. this part yet to be studied fully by me.
+        // 7. in case of multiple parameters. this part yet to be studied fully by me.
         MyLambda2 myLambda2 = String::compareTo;
         System.out.println(myLambda2.display("hello","hello"));
     }
 
-    // a non static method
+    // a non static method (for example 3)
     void nonStaticMethod(String str){
         System.out.println("from non static method : "+str);
     }
-    // a static method
+    // a static method (for example 2)
     static void reverse(String str){
         StringBuffer sb= new StringBuffer(str);
         sb.reverse();
@@ -56,16 +54,15 @@ public class MethodReferenceDemo {
     }
 }
 
+// (for example 1)
 @FunctionalInterface
-interface MyLambda {
-    void display(String str);
-}
+interface MyLambda { void display(String str);}
 
+// (for example 7)
 @FunctionalInterface
-interface MyLambda2{
-    int display(String str1, String str2);
-}
+interface MyLambda2{ int display(String str1, String str2);}
 
+// (for example 6)
 class Arithmetic{
     public static int add(int a, int b){
         return a+b;

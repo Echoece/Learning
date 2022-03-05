@@ -26,8 +26,25 @@ public class HashMapDemo {
         Set keySet = hashMap.keySet(); // Returns a Set view of the keys contained in this map.
         Collection collections = hashMap.values();   // Returns a Collection view of the values contained in this map.
 
-        Iterator iterator=hashMap.entrySet().iterator(); // getting the iterator
-        // hashMap.forEach(); // study more on this later
+                /*------------------------------------------------------------*/
+
+        // Iterating through the HashMap, (for each method looks easiest)
+            // 1. using the iterator
+        Iterator iterator=hashMap.entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry<Integer,String> mapElement = (Map.Entry<Integer, String>) iterator.next();
+            System.out.println("ID : "+ mapElement.getKey() + " Name: "+ mapElement.getValue());
+        }
+            // 2. For-each loop
+        for( Map.Entry<Integer,String> element: hashMap.entrySet() ){
+            System.out.println("ID : "+ element.getKey() + " Name: "+ element.getValue());
+        }
+            //3. For-each method
+        hashMap.forEach((key,value)->{
+            System.out.println("ID : "+ key+ " Name: "+ value);
+        });
+
+                /*------------------------------------------------------------*/
 
         // hashMap.merge(); // study more on this later
         int size = hashMap.size(); // Returns the number of key-value mappings in this map.
@@ -47,6 +64,5 @@ public class HashMapDemo {
         /*hashMap.compute();                // study more on this later
         hashMap.computeIfAbsent();
         hashMap.computeIfPresent();*/
-
     }
 }
