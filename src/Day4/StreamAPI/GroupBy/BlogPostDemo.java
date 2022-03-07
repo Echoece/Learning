@@ -12,7 +12,7 @@ public class BlogPostDemo {
 
         // To group the blog posts in the blog post list by their type:
         Map<BlogPostType, List<BlogPost>> postsPerType = posts.stream().collect(Collectors.groupingBy(BlogPost::getType));
-
+        postsPerType.forEach((key,value)-> System.out.println("Blog type: " + key + ", Posts: "+ value));
         /*
             // To group using two fields as keys, we can use the Pair class provided in the javafx.util or org.apache.commons.lang3.tuple packages.
         Map<Pair<BlogPostType, String>, List<BlogPost>> postsPerTypeAndAuthor = posts.stream()

@@ -1,36 +1,67 @@
-So far looking very similar to Node Express asynchronous file operation. It's called the New IO.
+It's called the New IO (some people call it non-blocking io).
 
+-> Java NIO has more classes and components, but the Channel, Buffer and Selector forms the core of the API. The rest of
+   the components, like Pipe and FileLock are merely utility classes to be used in conjunction with the three core components.
 -> when we have a choice between using File(from java.io) and Path(from java.nio) we should always choose path.
 -> Channels can be used in both blocking an non-blocking mode (but we will mostly work with non blocking)
 
-# Channels and Buffers:
--> Java NIO has more classes and components, but the Channel, Buffer and Selector forms the core of the API. The rest of
-   the components, like Pipe and FileLock are merely utility classes to be used in conjunction with the three core components.
-
+//----------------------------------------------------------------------
+# Channels:
 -> Typically, all IO in NIO starts with a Channel. A Channel is a bit like a stream. From the Channel data can be read into a Buffer.
    Data can also be written from a Buffer into a Channel.
 
--> here are several Channel and Buffer types, these channels cover UDP + TCP network IO, and file IO. Here is a list of the primary Channel
+-> here are several Channel types, these channels cover UDP + TCP network I/O, and file I/O. Here is a list of the primary Channel
    implementations in Java NIO:
-            FileChannel : he file channel is used for reading the data from the files.we cant create FileChannel object directly. getChannel() is used for that.
-                                                FileInputStream fis = new FileInputStream("D:\\testin.txt");
+            FileChannel : he file channel is used for reading the data from the files. We cant create FileChannel object directly. getChannel() is used for that.
+                                                FileInputStream fis = new FileInputStream("D:\\testing.txt");
                                                 ReadableByteChannel rbc = fis.getChannel();
 
             DatagramChannel: The datagram channel can read and write the data over the network via UDP (User Datagram Protocol)
                                                 DatagramChannel ch = DatagramChannel.open();        // for opening
                                                 DatagramChannel ch = DatagramChannel.close();       // for closing
+
             SocketChannel : The datagram channel can read and write the data over the network via TCP (Transmission Control Protocol)
                                                 SocketChannel ch = SocketChannel.open();
                                                 ch.connect(new InetSocketAddress("host_name", port_number));
+
             ServerSocketChannel : The ServerSocketChannel allows user to listen the incoming TCP connections, same as a web server. For every incoming connection a
                                   SocketChannel is created.
 
+//----------------------------------------------------------------------
 
+# Buffers:
+-> NIO buffers are used for interacting with NIO channels. It is the block of memory into which we can write data, which we can later be read again. The
+   memory block is wrapped with a NIO buffer object, which provides easier methods to work with the memory block.
+
+-> Simplest way to manage Buffers is:
+        1. keep them always ready for reading (= putting),
+        2. flip() them when you want to write(= get),
+        3. Remembering to compact() or clear() them afterwards so they go back into the read state.
+
+-> Core functionality which is common to all buffers (read flip() description for details ):
+       1. Limit : Limit depends on whether buffer is on read mode or write mode.
+                a. Write Mode: Here limit is equal to capacity of the buffer
+                b. Read Mode : When flipping from write to read mode,Limit is set to the last position value from the write mode. This means,
+                               we can only read as many bytes that were written.
+
+       2. Position: Position also depends on whether buffer is on read mode or write mode.
+                a. Write Mode: Initial = 0 , Maximum = capacity - 1. When a byte, long etc. has been written
+                               into the Buffer the position is advanced to point to the next cell in the buffer.
+                b. Read mode : When flipping a Buffer from write to read mode, Position is set to 0.
+
+       3. Capacity: Buffer has a fixed size, which is called capacity.
 
 -> Here is a list of the core Buffer implementations in Java NIO:
-            ByteBuffer: has a subclass MappedByteBuffer (used to map a file to a buffer)
-            CharBuffer, DoubleBuffer, FloatBuffer, IntBuffer, LongBuffer, ShortBuffer
+            1. ByteBuffer: has a subclass MappedByteBuffer (used to map a file to a buffer)
+            2. CharBuffer, 3. DoubleBuffer, 4. FloatBuffer, 5. IntBuffer, 6. LongBuffer, 7. ShortBuffer
 
+-> Using a Buffer to read and write data typically follows this little 4-step process:
+                    -> Write data into the Buffer
+                    -> Call buffer.flip() :
+                    -> Read data out of the Buffer
+                    -> Call buffer.clear() or buffer.compact()
+
+//----------------------------------------------------------------------
 
 # Selectors:
 A Selector allows a single thread to handle multiple Channel's. This is handy if your application has many connections (Channels) open,
@@ -41,6 +72,7 @@ To use a Selector you register the Channel's with it. Then you call it's select(
 ready for one of the registered channels. Once the method returns, the thread can then process these events. Examples of events are incoming
 connection, data received etc.
 
+//----------------------------------------------------------------------
 
 # Java IO vs NIO:
 1. Blocking vs Non-blocking:
@@ -52,6 +84,14 @@ connection, data received etc.
                between a data source/sink and a java program. The I/O operation using this approach is slow.
             -> Java NIO is buffer oriented I/O approach. Data is read into a buffer from which it is further processed using a channel. In NIO we deal
                with the channel and buffer for I/O operation.
+
 A major difference between these two is, stream can be used for one-way data transfer while channel provides a two-way data transfer facility.
+
+//----------------------------------------------------------------------
+
+# NIO scatter Gather :
+Scattering Reads: The 'scattering read' is used for reading the data from a single channel into multiple buffers.
+Gathering Writes: The 'gathering write' is used for writing the data from a multiple buffers into a single channel.
+
 
 

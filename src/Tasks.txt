@@ -57,7 +57,7 @@ Group by = Done
 
 Optional    = Done
 
-Java NIO    = Done
+Java NIO    = TBD
 Java Serialization  = done
 Generics    = Done
 
@@ -94,7 +94,6 @@ Day 3
     @InitBinder
     Spring @Async,@Scheduled
 
-
 Day 4
     JPA
     Basic example
@@ -126,7 +125,6 @@ Day 5
 https://docs.spring.io/spring-data/jpa/docs/2.1.10.RELEASE/reference/html/
 
 
-
        			Week 3
 Day 1
     Spring boot Security
@@ -137,14 +135,11 @@ Day 1
     Logout
     Method level security(@PreAuthorise,@Secured)
 
-
-
 Day 2
     Spring Boot Email
     Spring DATA pagination & Sorting
     Spring DATA with stream & optional
     Spring websocket
-
 
 Day 3
     Externalization application properties
