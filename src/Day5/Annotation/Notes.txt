@@ -1,0 +1,54 @@
+Annotations in Java are attached with class, interface, methods or fields to indicate additional information for java compiler
+and JVM, so it is an alternative option for XML and Java marker interfaces.
+
+        -> Annotations start with ‘@’.
+        -> Annotations do not change the action of a compiled program.
+        -> Annotations help to associate metadata (information) to the program elements i.e. instance variables, constructors, methods, classes, etc.
+        -> Annotations are not pure comments as they can change the way a program is treated by the compiler. See example.
+        -> Annotations basically are used to provide additional information, so could be an alternative to XML and Java marker interfaces.
+
+
+Built-In Java Annotations used in Java code
+        @Override           : @Override annotation assures that the subclass method is overriding the parent class method. If it is not so, compile
+                              time error occurs.
+        @SuppressWarnings   : @SuppressWarnings annotation: is used to suppress warnings issued by the compiler. Example: @SuppressWarnings("unchecked")
+        @Deprecated         : @Deprecated annoation marks that this method is deprecated so compiler prints warning. It informs user that it may be removed
+                              in the future versions. So, it is better not to use such methods.
+
+Built-In Java Annotations used in other annotations
+        @Target : @Target tag is used to specify at which type, the annotation is used. The java.lang.annotation.ElementType enum declares many constants to specify the type of element
+                  where annotation is to be applied such as TYPE, METHOD, FIELD etc. Check image for the list of Enum.
+
+        @Retention : @Retention annotation is used to specify to what level annotation will be available. Check image for list of Enums.
+        @Inherited : By default, annotations are not inherited to subclasses. The @Inherited annotation marks the annotation to be inherited to subclasses.
+        @Documented : The @Documented Marks the annotation for inclusion in the documentation.
+
+# Java Custom Annotations:
+Java Custom annotations or Java User-defined annotations are easy to create and use. The @interface element is used to declare an annotation.
+        Example: @interface MyAnnotation{}
+# Points to remember for java custom annotation signature
+        -> Method should not have any throws clauses
+        -> Method should return one of the following: primitive data types, String, Class, enum or array of these data types.
+        -> Method should not have any parameter.
+        -> We should attach @ just before interface keyword to define annotation.
+        -> It may assign a default value to the method.
+
+
+There are broadly 5 categories of annotations as listed:
+        Marker Annotations : The only purpose is to mark a declaration. These annotations contain no members and do not consist of
+                             any data. Thus, its presence as an annotation is sufficient. @Override is an example of Marker Annotation.
+
+        Single value Annotations : These annotations contain only one member and allow a shorthand form of specifying the value of the
+                                   member. We only need to specify the value for that member when the annotation is applied and don’t need
+                                   to specify the name of the member. However, in order to use this shorthand, the name of the member must be a value.
+                                   Example: @TestAnnotation(“testing”);
+        Full Annotations    : These annotations consist of multiple data members, names, values, pairs.
+                              Example: @TestAnnotation(owner=”Rahul”, value=”Class Geeks”)
+
+        Type Annotations    : These annotations can be applied to any place where a type is being used. For example, we can annotate the return type
+                              of a method. These are declared annotated with @Target annotation.
+
+
+        Repeating Annotations :
+
+

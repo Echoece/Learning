@@ -1,0 +1,11 @@
+The static import feature of Java 5 facilitate the java programmer to access any static member of a class directly. There is no
+need to qualify it by the class name.
+
+Note: Less coding is required if you have access any static member of a class often, but If you overuse the static import
+      feature, it makes the program unreadable and unmaintainable. Personally i'll try to avoid using it for now.
+
+
+# What is the difference between import and static import?
+
+-> The import allows the java programmer to access classes of a package without package qualification
+-> the static import feature allows to access the static members of a class without the class qualification

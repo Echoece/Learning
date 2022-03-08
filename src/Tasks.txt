@@ -52,12 +52,12 @@ allMatch,anyMatch,noneMatch = done
 Reduce(Specialized reduce method sum(),max(),count() etc = Done
 foreach = Done
 
-Collectors = Done
+Collectors = Partial done
 Group by = Done
 
 Optional    = Done
 
-Java NIO    = TBD
+Java NIO    = Partial done
 Java Serialization  = done
 Generics    = Done
 

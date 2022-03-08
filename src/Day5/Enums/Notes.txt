@@ -1,0 +1,21 @@
+ A simple Enum is a list of values that you can only select one from at a time.
+ Example, a size can be only one of S, M, L, etc for any given cloth.
+ You could use simple constants instead of the Basics.Enum but this has its advantages of readability, easier maintenance and strict type checking.
+
+
+    Java enums are more powerful than C/C++ enums . In Java, we can also add variables, methods and constructors to it.
+    The main objective of enum is to define our own data types(Enumerated Data Types).
+
+    important notes ::
+    => Every enum internally implemented by using Enum Class.
+    => Every enum constant represents an object of type enum.
+    => Every enum constant is always implicitly public static final. Since it is static, we can access it by using enum Name.
+       Since it is final, we can’t create child enums.
+    => We can declare main() method inside enum. Hence we can invoke enum directly from the Command Prompt.
+
+
+    -> Enum improves type safety
+    -> Enum can be easily used in switch
+    -> Enum can be traversed
+    -> Enum can have fields, constructors and methods
+    -> Enum may implement many interfaces but cannot extend any class because it internally extends Enum class

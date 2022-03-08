@@ -1,9 +1,7 @@
 package Day4.Collectors;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class CollectorsDemo {
@@ -11,7 +9,7 @@ public class CollectorsDemo {
         List<String> givenList = Arrays.asList("a", "bb", "ccc", "dd");
         List<String> listWithDuplicates = Arrays.asList("a", "bb", "c", "d", "bb");
 
-        // The toList collector can be used for collecting all Stream elements into a List instance.
+        // Converting Data as a List
         List<String> result              = givenList.stream().collect(Collectors.toList());
         // Java 10 introduced a convenient way to accumulate the Stream elements into an unmodifiable List:
         List<String> unmodifiableResult  = givenList.stream().collect(Collectors.toUnmodifiableList());
@@ -21,6 +19,14 @@ public class CollectorsDemo {
         Set<String> resultSet1           = listWithDuplicates.stream().collect(Collectors.toSet());
         // Since Java 10, we can easily create an unmodifiable Set using the toUnmodifiableSet() collector:
         Set<String> unmodifiableSet      = givenList.stream().collect(Collectors.toUnmodifiableSet());
+
+        // converting data to map: To do this, we need to provide two functions:
+                //keyMapper   :  to extract a Map key from a Stream element
+                //valueMapper :  to extract a value associated with a given key.
+
+        // this will create map with key as lower case elements from stream, and value as the length of stream.
+        Map<String, Integer> resultMap = givenList.stream().collect(Collectors.toMap(key-> key.toLowerCase(), value-> value.length()));
+        Map<String, Integer> resultMap1 = givenList.stream().collect(Collectors.toMap(Function.identity(), value-> value.hashCode()));
 
         // Let's create a Stream instance representing a sequence of elements, and then collect them into a LinkedList instance:
         List<String> resultList = givenList.stream().collect(Collectors.toCollection(LinkedList::new));
@@ -34,8 +40,7 @@ public class CollectorsDemo {
         Double average = productList.stream().collect(Collectors.averagingDouble(p->p.price));  // Average price is: 40200.0
         Long noOfElements = productList.stream().collect(Collectors.counting());                // Total elements : 5
 
-
-
+        // CollectingAndThen is a special collector that allows us to perform another action on a result straight after collecting ends.
 
     }
 
