@@ -1,6 +1,9 @@
 package Day1.Inheritence;
 
 public class MultiLevelInheritance {
+    public static void main(String[] args) {
+        new BabyTiger().eat();
+    }
 }
 
 // Here BabyTiger is a Tiger and Tiger is a Pet. this is example of multilevel Inheritance

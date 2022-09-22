@@ -26,6 +26,7 @@ public class HashMapDemo {
         Set keySet = hashMap.keySet(); // Returns a Set view of the keys contained in this map.
         Collection collections = hashMap.values();   // Returns a Collection view of the values contained in this map.
 
+
                 /*------------------------------------------------------------*/
 
         // Iterating through the HashMap, (for each method looks easiest)

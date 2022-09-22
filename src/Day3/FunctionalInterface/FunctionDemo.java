@@ -32,5 +32,5 @@ public class FunctionDemo {
 
     // 3. Bi-function example (see the normal way of same function at top)
     static BiFunction<Integer,Integer,Integer> incrementByOneAndThenMultiply =
-            ( numberToIncrement, numberToMultiply) -> ( numberToIncrement+1 ) * numberToMultiply;
+            ( numberToIncrement, numberToMultiply) -> ( numberToIncrement + 1 ) * numberToMultiply;
 }

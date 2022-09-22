@@ -16,9 +16,7 @@ public class UserDefinedException {
             for (int i = 0; i < 5; i++) {
                 // display own exception if balance < 1000
                 if (balance[i] < 1000) {
-                    MyException myException =
-                            new MyException("Error: Account Name "+ name[i] + " has Balance is less than 1000");
-                    throw myException;
+                    throw new MyException("Error: Account Name "+ name[i] + " has Balance is less than 1000");
                 }
 
                 System.out.println(accountId[i] + "\t" + name[i] +

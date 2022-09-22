@@ -23,6 +23,7 @@ public class UserDefinedAnnotationDemo {
 // target -  defines where we can use this. check image for enum details
 // Inherited - means the subclass will inherit the annotation too
 // Repeatable - we can use multiple times
+
 @Inherited
 @Retention(RetentionPolicy.CLASS)
 @Documented

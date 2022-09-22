@@ -24,10 +24,9 @@ public class ExceptionPropagation {
 }
 
 /*
-    -> Here the method2 we get an exception (arithmetic exception) in first line as its division by zero. So clearly the
-    next line (return c) wont be executed.
-    -> The exception will be passed on to the method that called method 2 ( method1() in this case ).
-    -> it is not handled in method1() as well, so it will pass the exception to the main method.
+    -> Here the method2 we get an exception (arithmetic exception) in first line. So the next line (return c) wont be executed.
+    -> The exception will be passed on to the caller method that called method 2 ( method1() in this case ).
+    -> it is not handled in method1() as well, so it will pass the exception to its own caller method (the main method).
     -> since the exception is not handled in the main method as well, it will pass the exception to the jvm and program
     will crash
 

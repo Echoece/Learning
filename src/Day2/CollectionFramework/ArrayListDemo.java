@@ -40,7 +40,7 @@ public class ArrayListDemo {
 
         //----------------------------------------------
         // foreach method: we can do stuff with it.
-        groceryList.forEach( (element)-> System.out.println(element) );
+        groceryList.forEach(System.out::println);
 
         // Returns an iterator over the elements in this list in proper sequence. it can only traverse the list in forward direction.
         // and can traverse map,set and list

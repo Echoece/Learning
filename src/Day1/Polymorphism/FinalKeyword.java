@@ -4,7 +4,7 @@ public class FinalKeyword {
 }
 // 1. final variable example:
 class Bike{
-    final int speedlimit=90;//final variable
+    final int speedlimit= 90; //final variable
     void run(){
         // speedlimit=400;  // here will be compile time error, as we try to change the value of a final variable.
     }
@@ -27,6 +27,7 @@ class Honda extends Bike{
 
 // 3. final class example:
 final class Bus{}
+
 // This will be compile time error as we trying to extend a final class
 // class Honda1 extends Bus{ }
 

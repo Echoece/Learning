@@ -22,10 +22,10 @@ class TestExceptionChild extends Parent{
 }
 
 // Case 2: superclass does declare an exception, in this case subclass overridden method can declare
-//               case  1) same exception,
-//               case  2) subclass exception or
-//               case  3) no exception
-//               case  4) cannot declare parent exception
+//               case-1: same exception,
+//               case-2: subclass exception or
+//               case-3: no exception
+//               case-4: cannot declare parent exception
 
 class Parent1{
     void msg()throws RuntimeException { System.out.println("parent method"); }

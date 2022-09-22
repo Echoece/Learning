@@ -30,8 +30,8 @@ Example:
 # use of Wrapper classes:
 
 1. Change value in method:
-Java supports call by value only (as call by value means we pass the pointer of the object and it can breaks the security). So if we pass
-a primitive type into a method, it will only pass a value not the reference of the original variable holding the value. So any changes we make
+Java supports call by value only (as call by reference means we pass the memory location pointer of the object and it can breaks the security). So
+if we pass a primitive type into a method, it will only pass a value not the reference of the original variable holding the value. So any changes we make
 won't reflect on the original value.
 
 If we pass an object however, we pass a reference. So any changes made inside the method will reflect on the original object as well, as

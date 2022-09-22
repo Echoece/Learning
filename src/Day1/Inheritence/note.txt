@@ -1,6 +1,5 @@
 # Inheritance and Aggregation
-
-Inheritance: in Java it is a mechanism in which one object acquires all the properties and behaviors of a parent object.Inheritance
+Inheritance: in Java it is a mechanism in which one object acquires all the properties and behaviors of a parent object. Inheritance
              represents the IS-A relationship which is also known as a parent-child relationship.
 
 Aggregation: If a class have an entity reference, it is known as Aggregation. Aggregation represents HAS-A relationship.
@@ -8,7 +7,6 @@ Aggregation: If a class have an entity reference, it is known as Aggregation. Ag
 /------------------------------------------------------------/
 
 # Uses
-
 Inheritance:
     1. For method overriding so runtime polymorphism can be achieved
     2. For Code Re-usability.
@@ -23,10 +21,11 @@ Aggregation:
 -> If the new class must have the original class. Use aggregation. The new class has now the original class as a member.
 
 We should use aggregation if part of the interface is not used or has to be changed to avoid an illogical situation.
-We only need to use inheritance, if we need almost all of the functionality without major changes. And when in doubt, use Aggregation.
+We only need to use inheritance, if we need almost all the functionality without major changes.
+And when in doubt, use Aggregation.
 
-An other possibility for, the case that we have an class that needs part of the functionality of the original class, is to split
-the original class in a root class and a sub class. And let the new class inherit from the root class. But you should take care with
+Another possibility for, the case that we have a class that needs part of the functionality of the original class, is to split
+the original class in a root class and a subclass. And let the new class inherit from the root class. But you should take care with
 this, not to create an illogical separation.
 For example,
 1. We have a class 'Dog' with methods: 'Eat', 'Walk', 'Bark', 'Play'.
@@ -52,7 +51,6 @@ Java doesnt support multiple or hybrid inheritance directly. It is supported thr
 # why java doesnt support multiple inheritance?
 Suppose a class Child inherits from both Parent1 and Parent2 class. Now if there is different implementation of method
 named test(), it will be complicated which implementation child will use.
-
 /------------------------------------------------------------/
 
 

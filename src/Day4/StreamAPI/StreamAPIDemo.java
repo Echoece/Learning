@@ -14,6 +14,7 @@ public class StreamAPIDemo {
             // 1. stream works with array
             // 2. Integer,Long and Double primitive value streams has separate interface. They contain the sum() method.
             // 3. String stream is possible with workaround, converting string to IntStream
+
         String [] arr = {"Hello", "World", "program"};
         Stream<String> streamOfArray = Stream.of(arr);
 

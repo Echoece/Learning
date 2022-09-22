@@ -16,7 +16,7 @@ desirable but it wont be compile time error. The problem will be at runtime wher
             ArrayList data= new ArrayList();
             data.add("Habib");
             data.add("Khabib");
-            data.add(1);                        // runtime error
+            data.add(1);                        // runtime exception
 
 But with Generics, we can declare the class like class ArrayList<T>{}. Now if we try to rune the code above it will give compile
 time error. This is how generics gives us type safety.

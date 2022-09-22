@@ -6,6 +6,8 @@ public class ComparatorDemo {
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>( Arrays.asList(187,713,444,251,678,477,59) );
 
+        Collections.sort(list);
+
         // sorting in ascending order
         System.out.println("\nAscending Order Sort using our own comparator:");
         Collections.sort(list, new Comparator<Integer>() {

@@ -3,7 +3,7 @@ An interface in Java is a blueprint of a class. It has static constants and abst
 Interfaces are used to standardize the way a particular set of classes are used, give them a common behaviour.
 it gives the program abstraction which hides away complex working of the system and only give a blueprint of the system.
 
-=> interface cant implement method (abstract classes can, even though it wont be abstract method anymore)
+=> interface cant implement method (abstract classes can, even though it won't be abstract method anymore)
 => a class can implement multiple interface, while can only inherit from one abstract class
 => interface is 100% abstract, while abstract classes can be 0-100% abstract depending on their structure.
 => all variables are public, static and final by default.
@@ -34,14 +34,14 @@ Cloneable, Remote, etc. They are used to provide some essential information to t
 -> It is used to achieve abstraction.
 -> By interface, we can support the functionality of multiple inheritance.
 -> It can be used to achieve loose coupling.
-
 //----------------------------------------------------------------------
 # Abstraction:
-A class which is declared with the abstract keyword is known as an abstract class in Java. It can have abstract and non-abstract methods (method with the body).
+A class which is declared with the abstract keyword is known as an abstract class in Java. It can have abstract and non-abstract
+methods (method with the body).
 
-There are two ways of achieve abstraction in java, interface (100% ) and abstract class(0-100% abstraction). abstract classes, like interface
-Provide a common interface which allows the subclass to be interchanged with all other subclasses. only difference is , we can specify
-some method and variables which we couldn't do in interface.
+There are two ways of achieve abstraction in java, interface (100% ) and abstract class(0-100% abstraction). abstract classes,
+like interface Provide a common interface which allows the subclass to be interchanged with all other subclasses. only difference is,
+we can specify some method and variables which we couldn't do in interface.
 
 same rule as interface, if we inherit from an abstract class we must provide the override. If it doesnt , then the
 inherited class must be declared abstract as well.
@@ -60,7 +60,6 @@ inherited class must be declared abstract as well.
 -> in case where we can provide a default partial implementation of base class, while leaving abstract methods
    to be overridden by child.
 //----------------------------------------------------------------------
-
 Rule of thumb :
 -> If the class has few abstract methods and few concrete methods, declare it as an abstract class.
 -> If the class has only abstract methods, declare it as an interface.

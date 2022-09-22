@@ -17,7 +17,7 @@ public class GroupByDemo {
         for (Employee e: employeeList) {
             // if city isn't present as a key in the hashmap, we create a new entry
             if(!empByCity.containsKey(e.city)){
-                empByCity.put(e.city,new ArrayList<Employee>());
+                empByCity.put(e.city, new ArrayList<>());
             }
             empByCity.get(e.city).add(e);   // getting the value from empByCity via the key, then adding the current employee to the list.
         }
@@ -27,9 +27,20 @@ public class GroupByDemo {
         empByCity = employeeList.stream().collect(Collectors.groupingBy(employee -> employee.city)); // we can use method reference too instead of lambda (preferred)
         System.out.println("Employees grouped by cities in Java 8: " + empByCity);
 
+        // group by employee age
         Map<Integer,List<Employee>> empByAge = employeeList.stream().collect(Collectors.groupingBy(employee-> employee.age));
         // output : {18=[Rafsan,(Jessor,18)], 21=[Dipu,(Dhaka,21)], 22=[Mobin,(Dhaka,22)], 23=[Abdul,(Dhaka,23)], 26=[Mahin,(Khulna,26)], 29=[Karim,(Khulna,29)], 31=[Setu,(Rajshahi,31)]}
         System.out.println(empByAge);
+
+        // group by employee city and getting the sum of age of each city.
+        Map<String, Integer> sumOfAgeByCity =  employeeList.stream().collect(Collectors.groupingBy(employee -> employee.city,
+                        Collectors.summingInt(employee -> employee.age)));
+        System.out.println(sumOfAgeByCity);  // output : {Rajshahi=31, Jessor=18, Khulna=55, Dhaka=66}
+
+        // group by employee city and get the count of employee in each city
+        Map<String, Long> sumOfEmployeeByCity = employeeList.stream().collect(Collectors.groupingBy(employee -> employee.city,
+                        Collectors.counting()));
+        System.out.println(sumOfEmployeeByCity); // output : {Rajshahi=1, Jessor=1, Khulna=2, Dhaka=3}
 
 
     }

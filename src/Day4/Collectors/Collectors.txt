@@ -3,7 +3,6 @@ summarizing elements according to various criteria, etc.
 
 
 Collectors.collectingAndThen():
-
 CollectingAndThen is a special collector that allows us to perform another action on a result straight after collecting ends.
         List<String> result = givenList.stream().collect(collectingAndThen(toList(), ImmutableList::copyOf))
 

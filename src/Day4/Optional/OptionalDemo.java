@@ -8,8 +8,8 @@ public class OptionalDemo {
     public static void main(String[] args) {
         String name = "Rafiqul Islam";
 
-        // 1. Creating Optional
 
+        // 1. Creating Optional
         Optional<String> empty = Optional.empty();              // create an empty Optional object,
         Optional<String> opt = Optional.of(name);               // dont pass null reference here, we will get nullpointer exception
         Optional<String> opt1 = Optional.ofNullable(name);      // if we pass a null reference, it doesn't throw an exception, returns an empty Optional object:
@@ -27,7 +27,7 @@ public class OptionalDemo {
         // 4. Default Value With orElse()  and orElseGet()
         String nullName = null;
         String name1 = Optional.ofNullable(nullName).orElse("john");        // output will be john in this case as we pass null value
-        String name2 = Optional.ofNullable(nullName).orElseGet(() -> "john");     // difference from orElse is, that instead of taking a default value, it takes a function to execute
+        String name2 = Optional.ofNullable(nullName).orElseGet(() -> "john".toLowerCase());     // difference from orElse is, that instead of taking a default value, it takes a function to execute
 
 
         // 5. Exceptions With orElseThrow():

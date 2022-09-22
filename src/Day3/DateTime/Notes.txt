@@ -1,8 +1,8 @@
--> In Java date is a long number that contains milliseconds passed since 1st January, 1970
--> Java follows starting year of calender in 1900.
+-> In Java date is a long number that contains milliseconds passed since 1st January 1970
+-> Java follows starting year of calendar in 1900.
 
 old date API - > Date class from java.util , it  has some property (mutable, contains both date and time, counts
-                 milli second) that might be issue. They don't provide thread safety.
+                 millisecond) that might be issue. They don't provide thread safety.
                  Example: Java.lang.System, java.util.Date, java.util.Calendar, java.text.SimpleDateFormat, java.util.TimeZone
 
 new Date API -> it is known as joda Date and time API. It has separate class for LocalDate, LocalTIme and LocalDateTime.
@@ -58,7 +58,7 @@ LocalTime:           It deals in time only. It is useful for representing human-
 
 LocalDateTime:       It handles both date and time, without a time zone. It is a combination of LocalDate with LocalTime.
 
-ZonedDateTime:       It combines the LocalDateTime class with the zone information given in ZoneId class. It represent a
+ZonedDateTime:       It combines the LocalDateTime class with the zone information given in ZoneId class. It represents a
                      complete date time stamp along with timezone information.
 
 OffsetTime:          It handles time with a corresponding time zone offset from Greenwich/UTC, without a time zone ID.
@@ -78,7 +78,7 @@ Period :             It is used to define the difference between dates in date-b
 
 ZoneId :             It states a time zone identifier and provides rules for converting between an Instant and a LocalDateTime.
 
-ZoneOffset :         It describe a time zone offset from Greenwich/UTC time.
+ZoneOffset :         It describes a time zone offset from Greenwich/UTC time.
 
 DateTimeFormatter :  It comes up with various predefined formatter, or we can define our own. It has parse() or format()
                      method for parsing and formatting the date time values.
